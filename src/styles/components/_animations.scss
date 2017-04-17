@@ -1,0 +1,32 @@
+// ../components/_animations.scss
+// All animations
+
+
+
+.animation__block {
+	overflow: hidden;
+
+	&.animated {
+		.animation__element {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+.animation__element {
+	opacity: 0;
+	transform: translateY(150px);
+	transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), 
+				opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	@include respond-to(extrasmall) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@include respond-to(small) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

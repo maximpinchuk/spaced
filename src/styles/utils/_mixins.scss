@@ -1,0 +1,347 @@
+// Mixins
+
+
+
+// Responsive
+@mixin respond-to($media) {
+    @if $media == extrasmall {
+        @media only screen and (max-width: $break-small) {
+            @content;
+        }
+    }
+    @else if $media == small {
+        @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium - 1) {
+            @content;
+        }
+    }
+    @else if $media == medium {
+        @media only screen and (min-width: $break-medium + 1) and (max-width: $break-large - 1) {
+            @content;
+        }
+    }
+    @else if $media == large {
+        @media only screen and (min-width: $break-large) {
+            @content;
+        }
+    }
+}
+
+
+
+// Title mixin
+// Данный mixin возможно будет применяться только
+// для заголоков на главной странице, т.к. нет полного
+// макета всех страниц пока не знаю, какие элементы будут повторяющимися
+// на всех страницах
+@mixin mainpage--title($color) {
+    position: relative;
+    margin: 58px 0 16px 0;
+    font-family: 'RelaweyBold', sans-serif;
+    font-size: 2.5rem;
+    color: $color;
+    text-align: center;
+
+    @include respond-to(extrasmall) {
+        font-size: 1.75rem;
+    }
+
+    &::selection {
+        background: $accent-color;
+        color: $select--color;
+    }
+
+    .title--huge {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        font-family: 'RelaweyExtraBold', sans-serif;
+        font-size: 8.25rem;
+        color: #191919;
+        opacity: 0.04;
+        text-align: center;
+        text-transform: lowercase;
+        z-index: 0;
+
+        @include respond-to(extrasmall) {
+            top: -30%;
+            font-size: 4.25rem;
+        }
+    }
+}
+
+
+// Button skin mixin (for both type of buttons)
+@mixin btn--skin($font-size, $color--start, $color--hover) {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    padding: 17px 19px;
+    font-family: 'RelaweySemiBold', sans-serif;
+    font-size: $font-size;
+    color: $color--start;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+        color: $color--hover;
+    }
+}
+
+// Button type 1 mixin (revealer effect)
+@mixin btn--type-1($bg--start, $bg--substrate, $bg--hover) {
+    background-color: $bg--start;
+    overflow: hidden;
+    transition: background-color 0.3s ease 0.3s, color 0.3s;
+
+    &:hover {
+        background-color: $bg--substrate;
+
+        &:before {
+            transform: translate3d(0, 100%, 0);
+        }
+
+        &:after {
+            transform: translate3d(0, 100%, 0);
+            transition-delay: 0.175s;
+        }
+
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        height: 100%;
+        background: $bg--substrate;
+        z-index: -2;
+        transition: transform 0.3s;
+        transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        height: 100%;
+        background: $bg--hover;
+        z-index: -1;
+        transition: transform 0.3s;
+        transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    }
+
+    span {
+        &::selection {
+            background: $accent-color;
+            color: $select--color;
+        }
+    }
+
+    &::selection {
+        background: $accent-color;
+        color: $select--color;
+    }
+}
+
+
+
+// Button type 2 mixin (border line animation)
+@mixin btn--type-2($border-color, $border-color--hover) {
+    border: 1px solid $border-color;
+    transition: color 0.3s;
+
+    span {
+        &::selection {
+            background: $accent-color;
+            color: $select--color;
+        }
+    }
+
+    &.on {
+        .border--bottom--left {
+            width: 50%;
+            transition: 0.1s linear;
+        }
+        .border--bottom--right {
+            width: 50%;
+            transition: 0.1s linear;
+        }
+        .border--left {
+            height: 100%;
+            transition: 0.1s linear;
+            transition-delay: 0.1s;
+        }
+        .border--right {
+            height: 100%;
+            transition: 0.1s linear;
+            transition-delay: 0.1s;
+        }
+        .border--top--left {
+            width: 51%;
+            transition: 0.1s linear;
+            transition-delay: 0.2s;
+        }
+        .border--top--right {
+            width: 51%;
+            transition: 0.1s linear;
+            transition-delay: 0.2s;
+        }
+    }
+
+    &.off {
+        .border--bottom--left {
+            width: 12px;
+            transition: 0.1s linear;
+            transition-delay: 0.2s;
+        }
+        .border--bottom--right {
+            width: 12px;
+            transition: 0.1s linear;
+            transition-delay: 0.2s;
+        }
+        .border--left {
+            height: 0;
+            transition: 0.1s linear;
+            transition-delay: 0.1s;
+        }
+        .border--right {
+            height: 0;
+            transition: 0.1s linear;
+            transition-delay: 0.1s;
+        }
+        .border--top--left {
+            width: 0;
+            transition: 0.1s linear;
+        }
+        .border--top--right {
+            width: 0;
+            transition: 0.1s linear;
+        }
+    }
+
+    .border--bottom--left {
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        right: 50%;
+        width: 12px;
+        height: 2px;
+        background: $border-color--hover;
+        // transition: 0.2s linear;
+    }
+
+    .border--bottom--right {
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        width: 12px;
+        height: 2px;
+        background: $border-color--hover;
+        // transition: 0.2s linear;
+    }
+
+    .border--left {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: -1px;
+        width: 2px;
+        height: 0;
+        background: $border-color--hover;
+        // transition: 0.2s;
+    }
+
+    .border--right {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: -1px;
+        width: 2px;
+        height: 0;
+        background: $border-color--hover;
+        // transition: 0.2s;
+    }
+
+    .border--top--left {
+        display: block;
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $border-color--hover;
+        // transition: 0.2s;
+    }
+
+    .border--top--right {
+        display: block;
+        position: absolute;
+        top: -1px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: $border-color--hover;
+        // transition: 0.2s;
+    }
+}
+
+
+
+@mixin selection() {
+    &::selection {
+        color: $select--color;
+        background: $accent-color;
+    }
+}
+
+
+@mixin link-arrow($color) {
+    display: inline-block;
+    position:  relative;
+    width: 8px;
+    height: 1px;
+    margin-left: 6px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 100%;
+        margin-left: -8px;
+        width: 8px;
+        height: 1px;
+        background: $color;
+        transform-origin: 0 0 0;
+        transition: transform 0.3s;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 4px;
+        height: 4px;
+        margin-top: -2px;
+        border-bottom: 1px solid $color;
+        border-right: 1px solid $color;
+        backface-visibility: hidden;
+        transform: rotate(-45deg);
+        transition: all 0.3s;
+    }
+}
+
+
+@mixin link-arrow--hover {
+    &:before {
+        transform: scaleX(1.4);
+    }
+    &:after {
+        right: -4px;
+    }
+}

@@ -1,0 +1,98 @@
+// ../components/_navigation-icon.scss
+// Styles for navigation icon (hamburger)
+
+
+.burger {
+	position: fixed;
+	top: 18px;
+	right: 50%;
+	width: 24px;
+	height: 16px; 
+	margin-right: -12px;
+	z-index: 999999;
+
+	@include respond-to(extrasmall) {
+		top: 18px;
+		right: 15px;
+		margin-right: 0;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.nav-icon {
+
+		&:hover {
+			span {
+				width: 100%;
+			}
+		}
+		
+		&:after,
+		&:before,
+		span {
+			display: block;
+			left: 0;
+			height: 2px;
+			border-radius: 100px;
+			background: $accent-color;
+		}
+
+		&:after,
+	    &:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+	    }
+
+	    &:after {
+			top: 0px;
+			margin-top: 0px;
+			transition: transform 0.2s, 0.2s all 0.4s;
+	    }
+
+	    &:before {
+			bottom: 0px;
+			margin-bottom: 0px;
+			transition: transform 0.3s, 0.2s all 0.4s;
+	    }
+
+	    span {
+	    	position: relative;
+			top: 50%;
+			margin: auto;
+			margin-top: -1px;
+			visibility: visible;
+			width: 70%;
+			opacity: 1;
+			transition: width 0.2s, opacity 0.2s, svisibility 0.2s,
+	    }
+
+	    &.on {
+
+			&:after {
+				transform: rotate(45deg);
+				top: 50%;
+				margin-top: -1px;
+				transition: all 0.2s, 0.2s transform 0.4s;
+			}
+
+			&:before {
+				transform: rotate(-45deg);
+				bottom: 50%;
+				margin-bottom: -1px;
+				transition: all 0.2s, 0.2s transform 0.4s;
+			}
+
+			span {
+				visibility: hidden;
+				transition: opacity 0.4s, visibility 0.4s;
+				opacity: 0;
+			}
+
+		}
+
+	}
+
+}

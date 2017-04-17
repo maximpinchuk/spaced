@@ -1,0 +1,42 @@
+// ../components/_btn--group.scss
+// Btn group styles
+
+
+
+.btn--group {
+	display: flex;
+	justify-content: center;
+	margin: 38px 0 0 0;
+
+	@include respond-to(extrasmall) {
+		display: block;
+	}
+
+	&__btn {
+		margin: 0 15px;
+
+		&.btn--type-1 {
+			@include btn--skin(0.875rem, $accent-color, $accent-color);
+			@include btn--type-2(rgba(125, 106, 222, 0.25), $accent-color);
+
+			@include respond-to(extrasmall) {
+				display: block;
+				width: 150px;
+				margin: 0 auto;
+				text-align: center;
+			}
+		}
+
+		&.btn--type-2 {
+			@include btn--skin(0.875rem, $white, $white);
+			@include btn--type-1($accent-color, #5f5f5f, #f69de8);
+
+			@include respond-to(extrasmall) {
+				display: block;
+				width: 150px;
+				margin: 0 auto 30px auto;
+				text-align: center;
+			}
+		}
+	}
+}

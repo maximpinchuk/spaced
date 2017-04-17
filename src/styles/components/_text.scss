@@ -1,0 +1,60 @@
+// ../components/_text.scss
+// Text styles
+
+
+
+.title {
+	margin: 0;
+	font-family: 'RelaweyBold', sans-serif;
+	font-size: 2.5rem;
+	color: $accent-color;
+	line-height: (46/40);
+	letter-spacing: -0.04em;
+
+	&::selection {
+		background: $accent-color;
+		color: $select--color;
+	}
+}
+
+.subtitle {
+	margin: 0;
+	padding: 25px 0 0 0;
+	max-width: 840px;
+	font-family: 'RelaweyRegular', sans-serif;
+	font-size: 1.125rem;
+	color: #191919;
+	line-height: (26/16);
+
+	&::selection {
+		background: $accent-color;
+		color: $select--color;
+	}
+}
+
+.text {
+	&--regular {
+		margin: 0;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 1.125rem;
+		color: #191919;
+		line-height: (26/16);
+	}
+
+	&::selection {
+		background: $accent-color;
+		color: $select--color;
+	}
+}
+
+.text--left {
+	text-align: left;
+}
+
+.text--right {
+	text-align: right;
+}
+
+.text--center {
+	text-align: center;
+}

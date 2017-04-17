@@ -1,0 +1,50 @@
+// ../components/_block.scss
+// Block styles
+
+
+
+.block {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 120px 0;
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+
+		&.bg--light-grey {
+			background: $bg--light-grey;
+		}
+
+	}
+	
+}
+
+.block--full {
+	position: relative;
+	display: flex;
+	justify-content: center;
+
+	@include respond-to(extrasmall) {
+		flex-direction: column;
+	}
+
+	@include respond-to(small) {
+		flex-direction: column;
+	}
+}
+
+// .block--portfolio {
+// 	padding: 54px 34px 40px 34px;
+
+// 	@include respond-to(extrasmall) {
+// 		padding: 34px 10px 10px 10px;
+// 	}
+// }

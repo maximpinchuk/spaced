@@ -1,0 +1,136 @@
+// Preloader page 
+.preloader__substrate {
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background: $accent-color;
+	z-index: 9999998;
+}
+
+.preloader-block {
+	position: fixed;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background: #fafafa;
+	z-index: 9999999;
+
+	&_container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+
+		&_column {
+			box-sizing: border-box;
+			float: left;
+			width: 12.5%;
+			height: 100%;
+			border: 1px solid #f3f3f3;
+		}
+
+	}
+
+	&_counts {
+		position: absolute;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16.875rem;
+		font-weight: 700;
+		color: #f2f2f2;
+		z-index: 1;
+	}
+
+	&_text-block {
+		position: absolute;
+		z-index: 2; 
+		
+		&_item {
+			position: relative;
+			font-family: 'RelaweyBold', sans-serif;
+			font-size: 3.75rem;
+			color: #191919;
+			line-height: (78/60);
+			opacity: 0;
+			text-align: center;
+			padding: 0 10px;
+
+			&:nth-child(1) {
+				animation: preloaderTextFirstLine 0.4s 0.5s forwards;
+
+				&:before {
+					content: '';
+					position: absolute;
+					width: 0;
+					height: 5px;
+					left: 0;
+					top: 52%;
+					background: $accent-color;
+					animation: preloaderLineFirstLine 0.3s 2s forwards;
+				}
+
+			}
+			
+			&:nth-child(2) {
+				animation: preloaderTextSecondLine 0.4s 0.7s forwards;
+
+				&:before {
+					content: '';
+					position: absolute;
+					width: 0;
+					height: 5px;
+					left: 0;
+					top: 52%;
+					background: $accent-color;
+					animation: preloaderLineSecondLine 0.3s 2.3s forwards;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@keyframes preloaderTextFirstLine {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes preloaderTextSecondLine {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes preloaderLineFirstLine {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes preloaderLineSecondLine {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}

@@ -1,0 +1,180 @@
+// ../pages/_services.scss
+// Styles for services page
+
+
+
+.seriveces--page__descr {
+	padding: 4px 0 0 0;
+}
+
+
+// Карточки с усулгами
+.service-block {
+	overflow: hidden;
+	position: relative;
+	padding: 0 15px 120px 15px;
+	margin: 50px 0 0 0;
+}
+
+.service-block__bg {
+	position: absolute;
+	top: 0;
+	left: 60px;
+	width: 100%;
+	height: 100%;
+
+	&.web {
+		background: url('../img/service-card__bg--web.jpg') no-repeat center;
+		background-size: cover;
+	}
+
+	&.marketing {
+		background: url('../img/service-card__bg--marketing.jpg') no-repeat center;
+		background-size: cover;
+	}
+
+	.bg__opacity {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #fafafa;
+		opacity: 0.95;
+	}
+}
+
+.service__title {
+	margin: 36px 0 10px 0;
+	font-family: 'RelaweyBold', sans-serif;
+	font-size: 2.25rem;
+	color: #191919;
+	line-height: (48/36);
+
+	@include selection();
+}
+
+.service__subtitle {
+	font-family: 'RelaweySemiBold', sans-serif;
+	font-size: 1.5rem;
+	color: #191919;
+	line-height: (48/24);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+
+	@include selection();
+
+	span {
+		color: $accent-color;
+
+		&::selection {
+			background: $accent-color;
+			color: $select--color;
+		}
+	}
+}
+
+.service__row {
+	padding: 26px 0 0 0;
+}
+
+.service__sometext {
+	font-family: 'RelaweyBold', sans-serif;
+	font-size: 1.3125rem;
+	color: #191919;
+
+	@include selection();
+}
+
+.service__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	&--link {
+
+		&__item {
+
+			&__link {
+				position: relative;
+				display: inline-block;
+				padding: 9px 0 9px 28px;
+				font-family: 'RelaweyRegular', sans-serif;
+				font-size: 1.125rem;
+				color: #191919;
+				transition: padding 0.3s, color 0.3s;
+
+				&:hover {
+					padding-left: 38px;
+					color: $accent-color;
+
+					&:before {
+						width: 28px;
+					}
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 18px;
+					height: 1px;
+					background: $accent-color;
+					transition: width 0.3s;
+				}
+
+				@include selection();
+			}
+		}
+	}
+
+	&--nolink {
+
+		&__item {
+			position: relative;
+			padding: 9px 0 9px 28px;
+			font-family: 'RelaweyRegular', sans-serif;
+			font-size: 1.125rem;
+			color: #191919;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 18px;
+				height: 1px;
+				background: $accent-color;
+				transition: width 0.3s;
+			}
+
+			@include selection();
+		}
+	}
+	
+}
+
+.service__link {
+	display: flex;
+	align-items: center;
+	padding: 0 20px 0 0;
+	font-family: 'RelaweyMedium', sans-serif;
+	font-size: 0.8125rem;
+	color: #191919;
+	line-height: (34/13);
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+
+	@include selection();
+
+	&:hover {
+		.link__icon {
+			@include link-arrow--hover();
+		}
+	}
+
+	.link__icon {
+		@include link-arrow(#191919); 
+	}
+}

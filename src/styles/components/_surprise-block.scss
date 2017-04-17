@@ -1,0 +1,31 @@
+// ../components/_surprise-block.scss
+// styles for surprise block
+
+
+
+.surprise-block {
+    display: none;
+    padding: 50px 15px;
+    text-align: center;
+    margin: auto;
+    background: $white;
+
+    &.active {
+        display: block;
+    }
+
+    &_title {
+        font-family: 'RelaweyBold', sans-serif;
+        font-size: 2.5rem;
+        color: $accent-color;
+        padding: 0;
+        margin: 0;
+    }
+
+    &_img {
+        width: 700px;
+        height: auto;
+        margin: auto;
+    }
+
+}

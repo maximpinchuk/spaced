@@ -1,0 +1,226 @@
+// ../components/_form.scss
+// Styles for form
+
+
+
+.form__container {
+	margin: 33px 0 0 0;
+}
+
+.form__row {
+	display: flex;
+	justify-content: space-between;
+
+	@include respond-to(extrasmall) {
+		flex-direction: column;
+	}
+
+	@include respond-to(small) {
+		flex-direction: column;
+	}
+}
+
+.form__column {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+// tmp input block styles (from codepen)
+.form__input-block {
+	position: relative;
+	width: 390px;
+	margin: 0 0 34px 0;
+
+	@include respond-to(extrasmall) {
+		width: 100%;
+	}
+
+	@include respond-to(small) {
+		width: 100%;
+	}
+
+	@include respond-to(medium) {
+		width: 300px;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 2px;
+		background: $pink-light;
+		transform: scaleX(0);
+		transform-origin: 0 0 0;
+		transition: transform 0.3s;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 1px;
+		background: $white;
+	}
+
+	&.is-focused {
+
+		&:after {
+			transform: scaleX(1);
+		}
+
+		.field-label {
+			color: $pink-light;
+		}
+	}
+
+	&.has-label {
+
+		.input-block__label {
+			color: $pink-light;
+			transform: translateY(0) scale(0.85);
+		}
+	}
+
+	.input-block__label {
+		position: relative;
+		display: block;
+		margin: 0;
+		padding: 0 0 8px 15px;
+		font-family: 'RelaweyMedium', sans-serif;
+		font-size: 0.875rem;
+		color: $white;
+		line-height: (24/14);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		transform-origin: left center;
+		transform: translateY(26px);
+		transition: transform 0.3s, color 0.3s;
+	}
+
+	.input-block__input {
+		box-sizing: border-box;
+		position: relative;
+		padding: 0 0 8px 13px;
+		width: 100%;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 1rem;
+		color: $white;
+		line-height: 16px;
+		background: transparent;
+		border: none;
+		// border-bottom: 1px solid $white;
+		-webkit-appearance: none;
+		outline: none;
+	}
+
+	.input-block__textarea {
+		box-sizing: border-box;
+		position: relative;
+		padding: 0 0 8px 13px;
+		width: 100%;
+		height: 116px;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 1rem;
+		color: $white;
+		line-height: 16px;
+		background: transparent;
+		border: none;
+		// border-bottom: 1px solid $white;
+		-webkit-appearance: none;
+		outline: none;
+		resize: none;
+	}
+
+	.input-block__error {
+		display: none;
+		position: absolute;
+		bottom: -20px;
+		left: 0;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.8125rem;
+		color: red;
+	}
+}
+
+.form__checkbox-block {
+	width: 262px;
+}
+
+// Custom checkbox
+.checkbox__list {
+	padding: 0;
+	margin: 30px 0 0 0;
+	text-align: left;
+	list-style: none;
+}
+
+.list__item {
+	margin: 10px 0;
+	padding: 0;
+}
+
+.checkbox__label {
+	position: relative;
+	margin: 0;
+	font-family: 'RelaweyMedium', sans-serif;
+	font-size: 0.875rem;
+	color:  $white;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+
+	.checkbox {
+		position: relative;
+		margin: 0 15px 0 0;
+		cursor: pointer;
+		outline: none;
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 2px;
+			top: 3px;
+			width: 8px;
+			height: 4px;
+			border: 2px solid $pink-light;
+			border-top-style: none;
+			border-right-style: none;
+			z-index: 1;
+			transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+			transform: rotate(-45deg) scale(0, 0);
+		}
+
+		&:checked {
+			&:before {
+				transform: rotate(-45deg) scale(1, 1);
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 13px;
+			height: 13px;
+			background: $accent-color;
+			border: 1px solid rgba(250, 249, 255, 0.4);
+			cursor: pointer;
+		}	
+	}
+}
+
+
+
+.form__btn {
+	@include btn--skin(0.875rem, $white, $white);
+	@include btn--type-2(rgba(246, 157, 232, 0.4), $pink-light);
+	background: transparent;
+	outline: none;
+	margin: 16px auto 0 auto;
+}

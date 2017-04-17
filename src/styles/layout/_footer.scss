@@ -1,0 +1,225 @@
+// ../layout/_footer.scss
+// Footer styles
+
+
+
+.footer {
+	// position: relative;
+	// bottom: 0;
+	// width: 100%;
+	// height: 150px;
+	// background: $bg-footer;
+	// padding: 40px 0 80px 0;
+	// z-index: -2;
+
+	position: relative;
+	width: 100%;
+	background: $bg-footer;
+	padding: 40px 0 65px 0;
+
+	@include respond-to(extrasmall) {
+		height: auto;
+	}
+
+	@include respond-to(small) {
+		height: auto;
+	}
+
+	&__container {
+		// position: fixed; 
+		// z-index: -1; 
+		// bottom: 0;
+
+		@include respond-to(extrasmall) {
+			position: relative;
+		}
+
+		@include respond-to(small) {
+			position: relative;
+		}
+	}
+
+	&__content {
+		// padding: 40px 0 70px 0;
+
+		@include respond-to(extrasmall) {
+			padding: 40px 0 0 0;
+		}
+
+		@include respond-to(small) {
+			padding: 40px 0 0 0;
+		}
+	}
+
+	&__col {
+		&.left {
+			text-align: left;
+
+			@include respond-to(extrasmall) {
+				text-align: center;
+			}
+
+			@include respond-to(small) {
+				text-align: center;
+			}
+		}
+		&.center {
+			text-align: center;
+
+			@include respond-to(extrasmall) {
+				text-align: center;
+			}
+
+			@include respond-to(small) {
+				text-align: center;
+			}
+		}
+		&.right {
+			text-align: right;
+
+			@include respond-to(extrasmall) {
+				text-align: center;
+			}
+
+			@include respond-to(small) {
+				text-align: center;
+			}
+		}
+	}
+
+	&__logo {
+		display: block;
+		width: 104px;
+		height: 20px;
+		fill: $white;
+		margin: auto;
+	}
+
+	&__title {
+		margin: 30px 0 0 0;
+		font-family: 'RelaweySemiBold', sans-serif;
+		font-size: 0.875rem;
+		color: $white;
+		line-height: (24/14);
+		letter-spacing: 0.075em;
+		text-transform: uppercase;
+
+		@include selection();
+	}
+
+	&__email {
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.875rem;
+		color: #ddd9ef;
+		line-height: (24/14);
+		transition: color 0.3s;
+
+		&:hover {
+			color: $pink-light;
+		}
+
+		@include selection();
+	}
+
+	&__tel {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 0.8125rem;
+		font-weight: 400;
+		color: $white;
+		line-height: (24/13);
+
+		@include selection();
+	}
+
+	.slash {
+		font-family: 'RelaweyMedium', sans-serif;
+		font-size: 0.8125rem;
+		color: $pink-light;
+
+		@include selection();
+	}
+
+	&__socials {
+		display: inline-block;
+		padding: 5px 0 0 0;
+		font-family: 'RelaweyRegualr', sans-serif;
+		font-size: 0.8125rem;
+		color: #ddd9ef;
+		line-height: (21/13);
+		letter-spacing: 0.075em;
+		transition: color 0.3s;
+
+		&:hover {
+			color: $pink-light;
+		}
+
+		@include selection();
+	}
+
+	&__presentation-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.875rem;
+		color: $white;
+		line-height: (24/14);
+
+		@include selection();
+
+		&:hover {
+			.presentation-link__icon {
+				@include link-arrow--hover();
+			}
+		}
+
+		.presentation-link__icon {
+			@include link-arrow($white);
+		}
+	}
+
+	&__adress {
+		margin: 0;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.875rem;
+		color: #ddd9ef;
+		line-height: (24/14);
+
+		@include selection();
+	}
+
+	&__map-link {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		position: relative;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.875rem;
+		color: $white;
+		line-height: (24/14);
+
+		@include selection();
+
+		&:hover {
+			.map-link__icon {
+				@include link-arrow--hover();
+			}
+		}
+
+		.map-link__icon {
+			@include link-arrow($white);
+		}
+	}
+
+	&__copyright {
+		margin: 20px 0 0 0;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.75rem;
+		color: #ddd9ef;
+		line-height: (18/12);
+		text-align: center;
+
+		@include selection();
+	}
+}

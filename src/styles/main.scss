@@ -1,0 +1,79 @@
+// utils/
+@import "utils/variables";
+@import "utils/mixins";
+
+
+// base/
+@import "base/normalize";
+@import "base/typography";
+
+
+// components/
+@import "components/preloader";
+@import "components/borders";
+@import "components/navigation";
+@import "components/navigation-icon";
+@import "components/block";
+@import "components/btn--group";
+@import "components/text";
+@import "components/cooperation";
+@import "components/animations";
+@import "components/form";
+@import "components/scissors";
+@import "components/surprise-block";
+
+
+// layout/
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+
+
+// pages/
+@import "pages/home";
+@import "pages/services";
+
+
+// vendors/
+@import "vendors/pagepiling";
+@import "vendors/swiper";
+@import "vendors/animsition";
+@import "vendors/mCustomScrollbar";
+@import "vendors/customScroll";
+
+
+// vendors-extensions/
+@import "vendors-extentions/swiper";
+
+
+
+// Custom scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track-piece {
+    background: $scrollbar-track-piece;
+}
+::-webkit-scrollbar-thumb {
+    background: $accent-color;
+}
+
+
+
+// Body styles
+body {
+    position: relative;
+    margin: 0;
+    z-index: 0;
+    overflow: hidden;
+
+    &.page--loaded {
+        overflow: auto;
+    }
+}
+
+.main--content {
+    position: relative;
+    background: $white;
+    z-index: 2;
+}
