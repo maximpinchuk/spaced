@@ -1,0 +1,124 @@
+<div class="chatForm--close close__wrapper">
+	<div class="close__icon">
+		<div class="icon__line"></div>
+		<div class="icon__line"></div>
+	</div>
+</div>
+
+<main id="conversational-form-docs" class="form__wrapper content">
+
+	<section id="info" role="info" class="info-block">
+		<div class="switch-btn" id="cf-toggle-btn" data-label="Веселая форма" data-label-toggled="Скучная форма">
+			<label class="switch">
+				<input type="checkbox" onclick="window.conversationalFormDocs.toggleConversation(event)">
+				<div class="slider round"></div>
+			</label>
+		</div>
+
+		<div class="text">cvkjghjkfdgjk dfgkj dhfkghdkjf hgkjwh kwh kjwhkwhwkj</div>
+	</section>
+
+	<section id="form" role="form" class="form-block default">
+	<!-- method="post" action="https://api.formbucket.com/f/buk_LfBFJfV1lMnxnXFeQB1UToN9" -->
+		<form id="cf-form" action="/php/form.php">
+			<div class="form__row">
+				<div class="form__column">
+					<fieldset class="form__input-block">
+						<label class="input-block__label" for="name">Введите ваше имя</label>
+						<input class="input-block__input" type="text" name="name" cf-questions="Привет! Как вас зовут?" cf-input-placeholder="Введите ваше имя" cf-error="Заполните поле" required>
+					</fieldset>
+
+					<fieldset class="form__input-block">
+						<label class="input-block__label" for="email">Введите ваш e-mail</label>
+						<input class="input-block__input" type="email" name="email" pattern=".+\@.+\..+" cf-questions="Привет, {previous-answer}! Укажите свой e-mail." cf-input-placeholder="Введите ваш e-mail" cf-error="Введите верный e-mail" required>
+					</fieldset>
+
+					<!-- <fieldset class="form__input-block">
+						<label class="input-block__label" for="opinion">Выберите интересующую вас услугу</label>
+						<select class="form-control" cf-questions="Выберите интересующую вас услугу" name="service">
+							<option value="web">Web</option>
+							<option value="smm">SMM</option>
+							<option value="seo">SEO</option>
+							<option value="e-mail">E-mail</option>
+						</select>
+					</fieldset> -->
+
+					<div class="form__checkbox-block">
+						<ul class="checkbox__list">
+							<li class="list__item">
+						      	<label class="checkbox__label" cf-questions="Выберите интересующие вас услуги">
+						      		<input class="checkbox" type="checkbox" name="check[]" value="Веб-разработка">
+						          	Веб-разработка
+						      	</label>
+						    </li>
+							<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="SMM" class="checkbox">
+						        	SMM и SMO
+						     	 </label>
+						    </li>
+					    	<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="SEO" class="checkbox">
+						          	SEO
+						     	</label>
+						    </li>
+					    	<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="Контекстная реклама" class="checkbox">
+						          	Контекстная реклама
+						      	</label>
+						    </li>
+					    	<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="E-mail маркетинг" class="checkbox">
+						          	E-mail маркетинг
+						      	</label>
+						    </li>
+					    	<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="Комплексная стратегия" class="checkbox">
+						          	Комплексная стратегия
+						      	</label>
+						    </li>
+					    	<li class="list__item">
+						      	<label class="checkbox__label">
+						      		<input type="checkbox" name="check[]" value="Медийная реклама" class="checkbox">
+						          	Медийная реклама
+						      	</label>
+						    </li>
+						</ul>
+					</div>
+
+					<!-- <fieldset>
+						<div class="radio">
+							<label>
+								<input type="radio" name="newsletter" value="yes" cf-questions="Хотите подписаться на нашу рассылку?" cf-input-placeholder="Выберите что-нибудь одно" cf-label="Да как нехуй">
+								Да как нехуй
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="newsletter" value="no" cf-questions="Хотите подписаться на нашу рассылку?" cf-input-placeholder="Выберите что-нибудь одно" cf-label="Не, в пизду вас">
+								Не, в пизду вас
+							</label>
+						</div>
+					</fieldset> -->
+
+					<fieldset class="form__input-block">
+						<label class="input-block__label" for="msg">Введите ваши пожелания</label>
+						<input class="input-block__input" type="text" name="msg" cf-questions="Чирканите нам на прощание пару слов" cf-input-placeholder="Введите сообщение">
+					</fieldset>
+
+					<div>
+						<button type="submit" class="form__btn">Отправить</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+
+	<section id="cf-context" role="cf-context" cf-context>
+		
+	</section>
+</main>

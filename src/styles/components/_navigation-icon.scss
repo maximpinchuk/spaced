@@ -4,11 +4,16 @@
 
 .burger {
 	position: fixed;
-	top: 18px;
+	// top: 18px;
+	// right: 50%;
+	// width: 24px;
+	// height: 16px; 
+	// margin-right: -12px;
+	top: 1.125rem;
 	right: 50%;
-	width: 24px;
-	height: 16px; 
-	margin-right: -12px;
+	width: 1.5rem;
+	height: 1rem; 
+	margin-right: -0.75rem;
 	z-index: 999999;
 
 	@include respond-to(extrasmall) {

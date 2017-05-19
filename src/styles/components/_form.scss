@@ -3,13 +3,48 @@
 
 
 
-.form__container {
-	margin: 33px 0 0 0;
+.form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	&.mainpage-form {
+		margin: 33px 0 0 0;
+	}
+
+	&.vacancy-form {
+		max-width: 51.875rem;
+	}
+
+	&.subscribe-form {
+		max-width: 51.875rem;
+	}
+
+	@include respond-to(extrasmall) {
+		flex-direction: column;
+	}
+
+	@include respond-to(small) {
+		flex-direction: column;
+	}
 }
 
 .form__row {
 	display: flex;
 	justify-content: space-between;
+
+	&.start {
+		justify-content: flex-start;
+	}
+
+	&.center {
+		justify-content: center;
+	}
+
+	&.end {
+		justify-content: flex-end;
+	}
 
 	@include respond-to(extrasmall) {
 		flex-direction: column;
@@ -21,17 +56,62 @@
 }
 
 .form__column {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+
+	&.start {
+		align-items: flex-start;
+	}
+
+	&.center {
+		align-items: center;
+	}
+
+	&.end {
+		align-items: flex-end;
+
+		@include respond-to(extrasmall) {
+			align-items: flex-start;
+		}
+
+		@include respond-to(small) {
+			align-items: flex-start;
+		}
+	}
+
+	&.small {
+		// max-width: 390px;
+		// margin-right: 50px;
+
+		max-width: 24.375rem;
+		margin-right: 3.125rem;
+
+		@include respond-to(extrasmall) {
+			max-width: 100%;
+			margin-right: 0;
+		}
+
+		@include respond-to(small) {
+			max-width: 100%;
+			margin-right: 0;
+		}
+	}
 }
 
 
 
 // tmp input block styles (from codepen)
 .form__input-block {
+	display: block;
 	position: relative;
-	width: 390px;
-	margin: 0 0 34px 0;
+	// width: 390px;
+	width: 24.375rem;
+	height: 100%;
+	// margin: 0 0 34px 0;
+	margin: 0 0 2.125rem 0;
+	padding: 0;
+	border: none;
 
 	@include respond-to(extrasmall) {
 		width: 100%;
@@ -52,7 +132,7 @@
 		bottom: 0;
 		width: 100%;
 		height: 2px;
-		background: $pink-light;
+		background: $accent-color;
 		transform: scaleX(0);
 		transform-origin: 0 0 0;
 		transition: transform 0.3s;
@@ -65,26 +145,47 @@
 		bottom: 0;
 		width: 100%;
 		height: 1px;
-		background: $white;
+		background: #191919;
+		opacity: 0.15;
 	}
 
-	&.is-focused {
-
-		&:after {
-			transform: scaleX(1);
+	&.none-underline {
+		&:before {
+			display: none;
 		}
 
-		.field-label {
-			color: $pink-light;
+		&:after {
+			display: none;
 		}
 	}
 
 	&.has-label {
 
-		.input-block__label {
-			color: $pink-light;
-			transform: translateY(0) scale(0.85);
+		&:after {
+			transform: scaleX(1);
 		}
+
+		.input-block__label {
+			color: $accent-color;
+			transform: translateY(0) scale(0.85);
+			text-transform: uppercase;
+		}
+	}
+
+	&.error {
+		.error {
+			display: block;
+		}
+	}
+
+	.error {
+		display: none;
+		position: absolute;
+		left: 15px;
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 0.875rem;
+		color: red;
+		line-height: 1.33;
 	}
 
 	.input-block__label {
@@ -94,13 +195,14 @@
 		padding: 0 0 8px 15px;
 		font-family: 'RelaweyMedium', sans-serif;
 		font-size: 0.875rem;
-		color: $white;
+		color: #191919;
 		line-height: (24/14);
 		letter-spacing: 0.05em;
-		text-transform: uppercase;
 		transform-origin: left center;
 		transform: translateY(26px);
 		transition: transform 0.3s, color 0.3s;
+
+		@include selection();
 	}
 
 	.input-block__input {
@@ -110,13 +212,14 @@
 		width: 100%;
 		font-family: 'RelaweyRegular', sans-serif;
 		font-size: 1rem;
-		color: $white;
+		color: #191919;
 		line-height: 16px;
 		background: transparent;
 		border: none;
-		// border-bottom: 1px solid $white;
 		-webkit-appearance: none;
 		outline: none;
+
+		@include selection();
 	}
 
 	.input-block__textarea {
@@ -124,17 +227,34 @@
 		position: relative;
 		padding: 0 0 8px 13px;
 		width: 100%;
-		height: 116px;
+		height: 100%;
+		height: calc(100% - 30px);
+		height: -webkit-calc(100% - 30px);
 		font-family: 'RelaweyRegular', sans-serif;
 		font-size: 1rem;
-		color: $white;
+		color: #191919;
 		line-height: 16px;
 		background: transparent;
 		border: none;
-		// border-bottom: 1px solid $white;
 		-webkit-appearance: none;
 		outline: none;
 		resize: none;
+
+		&.small {
+			// height: 116px;
+			height: 7.25rem;
+		}
+
+		&.medium {
+			height: auto;
+		}
+
+		&.large {
+			// height: 209px;
+			height: 13.0625rem;
+		}
+
+		@include selection();
 	}
 
 	.input-block__error {
@@ -161,7 +281,7 @@
 }
 
 .list__item {
-	margin: 10px 0;
+	margin: 8px 0;
 	padding: 0;
 }
 
@@ -170,13 +290,15 @@
 	margin: 0;
 	font-family: 'RelaweyMedium', sans-serif;
 	font-size: 0.875rem;
-	color:  $white;
+	color:  #191919;
 	letter-spacing: 0.05em;
 	cursor: pointer;
 
+	@include selection();
+
 	.checkbox {
 		position: relative;
-		margin: 0 15px 0 0;
+		margin: 0 10px 0 0;
 		cursor: pointer;
 		outline: none;
 
@@ -187,7 +309,7 @@
 			top: 3px;
 			width: 8px;
 			height: 4px;
-			border: 2px solid $pink-light;
+			border: 2px solid $accent-color;
 			border-top-style: none;
 			border-right-style: none;
 			z-index: 1;
@@ -196,6 +318,7 @@
 		}
 
 		&:checked {
+
 			&:before {
 				transform: rotate(-45deg) scale(1, 1);
 			}
@@ -208,19 +331,205 @@
 			left: 0;
 			width: 13px;
 			height: 13px;
-			background: $accent-color;
-			border: 1px solid rgba(250, 249, 255, 0.4);
+			background: #f9f9f9;
+			border: 1px solid rgba(25, 25, 25, 0.4);
 			cursor: pointer;
 		}	
 	}
 }
 
-
-
 .form__btn {
-	@include btn--skin(0.875rem, $white, $white);
-	@include btn--type-2(rgba(246, 157, 232, 0.4), $pink-light);
-	background: transparent;
+	@include btn--skin(0.8125rem, $white, $white);
+	@include btn--type-1($accent-color, $pink-light);
+
 	outline: none;
-	margin: 16px auto 0 auto;
+	border: none;
+	margin: 16px 0 0 0;
+}
+
+// File input customization
+.file-input__wrapper {
+	display: block;
+	position: relative;
+	margin: 34px 0 0 15px;
+
+	@include respond-to(extrasmall) {
+		margin: 34px 0 0 0;
+	}
+
+	@include respond-to(small) {
+		margin: 34px 0 0 0;
+	}
+
+	&.selected {
+		.file-input__icon {
+			&.plus {
+				display: none;
+			}
+			&.check {
+				display: block;
+			}
+		}
+	}
+
+	.file-input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.file-input__label {
+		display: block;
+		padding: 3px 5px 3px 25px;
+		font-family: 'RelaweySemiBold', sans-serif;
+		font-size: 0.8125rem;
+		color: #191919;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		max-width: 250px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		@include selection();
+	}
+
+	.file-input__icon {
+
+		&.plus {
+			display: block;
+			position: absolute;
+			top: 2px;
+			left: 0;
+			width: 14px;
+			height: 14px;
+			fill: $accent-color;
+		}
+
+		&.check {
+			display: none;
+			position: absolute;
+			top: 2px;
+			left: 0;
+			width: 14px;
+			height: 14px;
+			fill: #53ba5c;
+		}
+		
+	}
+}
+
+
+
+.form__animation-block__element {
+	opacity: 0;
+	transform: translateY(150px);
+	transition: transform 1.3s cubic-bezier(0.215, 0.61, 0.355, 1), 
+				opacity 1.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+	@include respond-to(extrasmall) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@include respond-to(small) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+
+.response-block {
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	width: 100%;
+
+	&.left {
+		text-align: left;
+	}
+
+	&.center {
+		text-align: center;
+	}
+
+	&.right {
+		text-align: right;
+	}
+
+	.response-block__response {
+		font-family: 'RelaweyRegular', sans-serif;
+		font-size: 1rem;
+		line-height: 1.33;
+
+		&.success {
+			color: #53ba5c;
+
+			&:selection {
+				color: $white;
+				background: #53ba5c;
+			}
+		}
+
+		&.error {
+			color: #ff1616;
+
+			&:selection {
+				color: $white;
+				background: #ff1616;
+			}
+		}
+	}
+}
+
+// input:-webkit-autofill {
+//     -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 1) inset !important;
+// }
+
+.form-loader {
+	display: none;
+	align-items: center;
+	position: absolute;
+	top: 39px;
+	left: -45px;
+
+	.form-loader__loader-dot {
+		display: block;
+		width: 4px;
+		height: 4px;
+		background: $accent-color;
+		margin: 0 2px;
+		border-radius: 50%;
+
+		&:nth-child(1) {
+			animation: formLoader 1s linear 0.333333s infinite;
+		}
+
+		&:nth-child(2) {
+			animation: formLoader 1s linear 0.666667s infinite;
+		}
+
+		&:nth-child(3) {
+			animation: formLoader 1s linear 1s infinite;
+		}
+	}
+}
+
+@keyframes formLoader {
+	0% {
+		opacity: 1;
+	}
+	15% {
+		opacity: 0;
+	}
+	33% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
 }

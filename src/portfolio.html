@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>Spaced</title>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
+
+		<style>
+			.pace {
+				-webkit-pointer-events: none;
+				pointer-events: none;
+
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99999999;
+				transition: transform 0.5s;
+			}
+
+			.pace .pace-progress {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				background: #fafafa;
+
+				-webkit-transform: translate3d(0, 0, 0) !important;
+				-ms-transform: translate3d(0, 0, 0) !important;
+				transform: translate3d(0, 0, 0) !important;
+			}
+
+			.pace .pace-progress:after {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				content: attr(data-progress-text);
+				font-family: "Montserrat", sans-serif;
+				font-weight: 700;
+				font-size: 16.875rem;
+				line-height: 1;
+				text-align: right;
+				color: #7d6ade;
+			}
+
+			@media screen and (max-width: 768px) {
+				.pace .pace-progress:after {
+					font-size: 8rem;
+				}
+			}
+
+			.pace-column {
+				box-sizing: border-box;
+				float: left;
+				width: 12.5%;
+				height: 100%;
+				border-right: 1px solid #f3f3f3;
+				background: transparent;
+			}
+
+			.pace__substrate {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #7d6ade;
+				z-index: 99999998;
+				transition: transform 0.5s 0.5s;
+			}
+		</style>
+			
+		<link rel="stylesheet" type="text/css" href="styles/main.min.css">
+	</head>
+	<body>
+		<!-- Pace substrate -->
+		<div class="pace__substrate"></div>
+
+		<!-- Dropdown menu -->
+		//= templates/_menu.html
+
+		<!-- Head repeat elements -->
+		//= templates/header.html
+
+
+		<!-- Header -->
+		<header id="header" class="header">
+			<!-- Фоны и прочее дерьмо -->
+			<div class="header__bg header__bg--img" style="background: url('img/bg-portfolio.jpg') no-repeat center; background-size: cover;"></div>
+			<div class="header__bg header__bg--opacity"></div>
+
+			<div class="header__container">
+				<div class="header__animation__block">
+					<div class="header__subtitle header__animation__element" style="transition-delay: 0.5s;">портфолио</div>
+				</div>
+				<div class="header__animation__block">
+					<div class="header__title header__animation__element" style="transition-delay: 0.7s;">Успех наших клиентов</div>
+				</div>
+				<div class="header__animation__block">
+					<div class="header__title header__animation__element" style="transition-delay: 0.8s;">это наш успех</div>
+				</div>
+				<div class="header__animation__block">
+					<div class="header__scrolldown header__animation__element" style="transition-delay: 1s;">
+						<a href="#anchor" class="header__scrolldown__link">пролистайте вниз
+							<svg class="header__scrolldown__link__icon" width="9px" height="11px" viewBox="880.244 0 1867.86 2267.719">
+								<g>
+									<path d="M924.674,1440.696c-59.239-59.238-59.239-154.575,0-213.813c29.619-29.619,68.031-44.429,106.906-44.429   s77.287,14.81,106.906,44.429l524.815,524.815V151.335C1663.302,68.031,1730.871,0,1814.638,0   c83.304,0,151.335,67.568,151.335,151.335v1600.362l523.89-524.815c59.239-59.238,154.575-59.238,213.813,0   s59.238,154.575,0,213.813l-782.594,782.595c-28.231,28.231-66.644,44.429-106.907,44.429s-78.676-15.734-106.907-44.429   L924.674,1440.696z"/>
+								</g>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="main-content__trigger"></div>
+		<div id="content" class="main--content" style="background: #fff;">
+			<section class="block" id="anchor">
+				<div class="container anim__block">
+					<div class="anim__wrapper">
+						<h3 class="title anim__element">Создаем шедевры</h3>
+					</div>
+					<div class="anim__wrapper">
+						<p class="subtitle anim__element" style="transition-delay: 0.2s;">В каждом проекте мы уделяем также много внимания дизайну и интерфейсу как чистому коду и рабочему функционалу. В каждом проекте мы уделяем также много внимания дизайну и интерфейсу как чистому коду и рабочему функционалу.</p>
+					</div>
+				</div>
+			</section>
+
+			<div class="portfolio__item__wrapper anim__block">
+				<a class="portfolio__item" href="#" style="background: url('img/cases/case__bg--Kristl.jpg') no-repeat center; background-size: cover;">
+					<div class="container">
+						<div class="anim__wrapper">
+							<h5 class="item__title anim__element">Kristl Wellness Club 
+								<span class="item__count">01</span>
+							</h5>
+						</div>
+						<div class="anim__wrapper">
+							<p class="item__categories anim__element">SMM<span class="slash"> / </span>Контекстная реклама</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="portfolio__item__wrapper anim__block">
+				<a class="portfolio__item" href="#" style="background: url('img/cases/case__bg--Kristl.jpg') no-repeat center; background-size: cover;">
+					<div class="container">
+						<div class="anim__wrapper">
+							<h5 class="item__title anim__element">Статум Строй 
+								<span class="item__count">02</span>
+							</h5>
+						</div>
+						<div class="anim__wrapper">
+							<p class="item__categories anim__element">Комплексная стратегия<span class="slash"> / </span>Контекстная реклама</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="portfolio__item__wrapper anim__block">
+				<a class="portfolio__item" href="#" style="background: url('img/cases/case__bg--Blenda.jpg') no-repeat center; background-size: cover;">
+					<div class="container">
+						<div class="anim__wrapper">
+							<h5 class="item__title anim__element">Фотошкола Blenda 
+								<span class="item__count">03</span>
+							</h5>
+						</div>
+						<div class="anim__wrapper">
+							<p class="item__categories anim__element">Веб-разработка</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+
+		<!-- Surprise block -->
+		//= templates/surprise-block.html
+
+		<!-- Footer -->
+		//= templates/footer.html
+
+		<!-- Chat form -->
+		//= templates/chat-form.html
+
+		<!-- LINKED FILES -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/main.min.js"></script>
+	</body>
+</html>

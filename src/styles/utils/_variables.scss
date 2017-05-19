@@ -21,7 +21,7 @@ $light-grey: #7d8485;
 $pink-light: #f69de8;
 
 $block-bg-grey: #faf8ff;
-$bg-footer: #7261cc;
+$bg-footer: #191919;
 $menu-bg: #fff;
 
 $btn-gradient-start: #e2aaf4;
@@ -40,9 +40,10 @@ $base-font-size: 16px;
 
 
 $text-primary-color: #383838;
-$text-secondary-color: #7d8485;
+$text-secondary-color: #353535;
 $text-third-color: #6a6a6a;
-$text-footer-color: #ddd9ef;
+
+$text-footer-color: #dfdfdf;
 $text-menu-primary-color: #191919;
 
 $select--color: #fff;
@@ -52,6 +53,8 @@ $select--color: #fff;
 $break-small: 768px;
 $break-medium: 992px;
 $break-large: 1200px;
+$break-extralarge: 1640px;
 $container-small: 750px;
 $container-medium: 970px;
 $container-large: 1170px;
+$container-extralarge: 1600px;

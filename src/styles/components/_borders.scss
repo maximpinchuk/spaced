@@ -14,7 +14,8 @@
 	position: fixed;
 	top: 0;
 	width: 100%;
-	height: 54px;
+	// height: 54px;
+	height: 3.375rem;
 
 	@include respond-to(extrasmall) {
 		height: 54px;
@@ -24,7 +25,8 @@
 .border-panel--right {
 	position: fixed;
 	right: 0;
-	width: 30px;
+	// width: 30px;
+	width: 1.875rem;
 	height: 100%;
 
 	@include respond-to(extrasmall) {
@@ -36,7 +38,8 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 30px;
+	// height: 30px;
+	height: 1.875rem;
 
 	@include respond-to(extrasmall) {
 		height: 0;
@@ -46,7 +49,8 @@
 .border-panel--left {
 	position: fixed;
 	top: 0;
-	width: 30px;
+	// width: 30px;
+	width: 1.875rem;
 	height: 100%;
 
 	@include respond-to(extrasmall) {

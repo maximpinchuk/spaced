@@ -1,0 +1,82 @@
+// ../components/_subscribe-popup.scss
+// Styles for subscribe popup
+
+
+
+.subscribe-popup {
+	box-sizing: border-box;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $white;
+	z-index: 999999999;
+	transform-origin: top;
+	transform: scaleY(0);
+	transition: transform 0.5s 0.5s;
+
+	@include respond-to(extrasmall) {
+		padding: 0 0 50px 0;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $accent-color;
+		transform-origin: bottom;
+		transform: scaleY(1);
+		transition: transform 0.5s;
+		z-index: 2;
+	}
+
+	&.opened {
+		transform: scaleY(1);
+		transition: transform 0.5s;
+
+		&:before {
+			transform: scaleY(0);
+			transition: transform 0.5s 0.5s;
+		}
+	}
+}
+
+.subscribe-popup__close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 20px;
+	left: 50%;
+	margin-left: -10px;
+	z-index: 2;
+	cursor: pointer;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: $accent-color;
+		transform-origin: center;
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: $accent-color;
+		transform-origin: center;
+		transform: rotate(-45deg);
+	}
+}

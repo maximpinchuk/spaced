@@ -13,20 +13,20 @@ Pace.on('done', function() {
 	    $('body').addClass('page--loaded');
 	    $('header').addClass('header--loaded');
 	}, 2000);
+	setTimeout(function(){
+		$('.pace').remove();
+		$('.pace__substrate').remove();
+	}, 3000);
 });
 
 
-//= vendors/jquery.mousewheel.js
-//= vendors/pagepiling.js
-//= vendors/swiper.min.js
-//= vendors/wow.js
 
-//= vendors/scrollMonitor.js
-//= vendors/scrollParallax.js
+//= vendors/pagepiling.js
+//= vendors/maskedinput.min.js
+//= vendors/conversational-form.js
+//= vendors/in-view.min.js
 
 //= vendors/ScrollMagic.js
-//= vendors/animation.gsap.js
-//= vendors/debug.addIndicators.js
 
 //= controllers/scrollAnimations.js
 //= controllers/formsValidation.js
@@ -37,22 +37,59 @@ Pace.on('done', function() {
 
 $(document).ready(function() {
 
+	// document.oncontextmenu = function(e) {
+	// 	e.preventDefault();
+	// }
 
+	// alert(navigator.userAgent);
 
-	// Анимация при скролле
-	function wowInit() {
-		var bodyWidth = document.body.clientWidth;
-		wow = new WOW({
-			boxClass: 'animation__block',
-			animateClass: 'animated',
-			offset: 0,
-			mobile: false
-		});
-		if (bodyWidth >= 992) {
-			wow.init();
-		}
+	if (navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/Trident/i) ){
+	    $('html').addClass('ie--support');
+	    document.activeElement.blur();
 	}
-	wowInit();
+
+	var bodyHeight = function() {
+		var headerElement = document.getElementById('header');
+		var contentElement = document.getElementById('content');
+		var footerElement = document.getElementById('footer');
+
+		var headerHeight = headerElement.clientHeight;
+		var contentHeight = contentElement.clientHeight;
+		var footerHeight = footerElement.clientHeight;
+
+		var totalHeight = headerHeight + contentHeight + footerHeight;
+
+		$('body').css({
+			height: totalHeight
+		});
+	}
+	bodyHeight();
+
+	
+
+	// if (window.clienWidth <= 992) {
+	// 	var headerHeight = document.getElementById('header').clientHeight;
+	// 	var contentHeight = document.getElementById('content').clientHeight;
+	// 	var footerHeight = document.getElementById('footer').clientHeight;
+
+	// 	var totalHeight = headerHeight + contentHeight + footerHeight;
+
+	// 	$('body').css({
+	// 		height: totalHeight
+	// 	});
+
+	// 	document.onresize = function() {
+	// 		var headerHeight = document.getElementById('header').clientHeight;
+	// 		var contentHeight = document.getElementById('content').clientHeight;
+	// 		var footerHeight = document.getElementById('footer').clientHeight;
+
+	// 		var totalHeight = headerHeight + contentHeight + footerHeight;
+
+	// 		$('body').css({
+	// 			height: totalHeight
+	// 		});
+	// 	}
+	// }
 
 
 
@@ -106,7 +143,9 @@ $(document).ready(function() {
 		$('.menu__content').addClass('menu__content--opened');
 		$('html').addClass('overflow-hidden');
 		$('.header__logo').fadeOut(200);
-		$('.header__communication-block').fadeOut(200);
+		if ($('.header__communication-block').length && document.body.clientWidth >= 992) {
+			$('.header__communication-block').fadeOut(200);
+		};
 		$('body').css({
 			overflow: 'hidden'
 		});
@@ -133,21 +172,6 @@ $(document).ready(function() {
 
 
 
-	$('.services__item.item--1').mouseenter(function() {
-		$('.bg__container.bg--1').fadeIn(400);
-		$('.bg__container.bg--2').css({
-			zIndex: '-1'
-		});
-	});
-	$('.services__item.item--2').mouseenter(function() {
-		$('.bg__container.bg--2').fadeIn(400);
-		$('.bg__container.bg--2').css({
-			zIndex: '1'
-		});
-	});
-
-
-
 	// Открытие основного меню при клике на гамбургер
 	$('.nav-icon').click(function() {
 		if ($(this).hasClass('on')) {
@@ -157,21 +181,71 @@ $(document).ready(function() {
 		}
 	});
 
-	
 
-	// Swiper init (portfolio)
-	var swiper = new Swiper('.swiper-container', {
-		freeMode: true,
-		slidesPerView: 'auto',
-		spaceBetween: 0,
-		grabCursor: true,
-		nextButton: '.swiper-button-next',
-		prevButton: '.swiper-button-prev',
-		breakpoints: {
-			640: {
-				freeMode: false
-			}
+
+	// Открытие формы
+	function chatFormOpen() {
+		$('.header__logo').fadeOut(200);
+		$('.nav-icon').fadeOut(200);
+		$('.chatForm--close').addClass('open');
+		if ($('.header__communication-block').length && document.body.clientWidth >= 992) {
+			$('.header__communication-block').fadeOut(200);
+		};
+		$('body').css({
+			overflow: 'hidden'
+		});
+		$('html').addClass('overflow-hidden');
+		// $('.chatForm__substrate').addClass('open');
+		$('#conversational-form-docs').addClass('open');
+	}
+
+	// Закрытие формы
+	function chatFormClose() {
+		$('.header__logo').fadeIn(300);
+		$('.nav-icon').fadeIn(300);
+		$('.chatForm--close').removeClass('open');
+		if ($('.header__communication-block').length && document.body.clientWidth >= 992) {
+			$('.header__communication-block').fadeIn(300);
+		};
+		$('body').css({
+			overflow: 'auto'
+		});
+		$('html').removeClass('overflow-hidden');
+		// $('.chatForm__substrate').removeClass('open');
+		$('#conversational-form-docs').removeClass('open');
+	}
+
+	$('.conversational-form__open').click(function() {
+		chatFormOpen();
+	});
+
+	$('.chatForm--close').click(function() {
+		chatFormClose();
+	});
+
+
+
+	// Services bg hover behaviour
+	function servicesBgChange() {
+		if (document.body.clientWidth >= 992) {
+			$('.services__item.item--1').mouseenter(function() {
+				$('.bg__container.bg--1').fadeIn(400);
+				$('.bg__container.bg--2').css({
+					zIndex: '-1'
+				});
+			});
+			$('.services__item.item--2').mouseenter(function() {
+				$('.bg__container.bg--2').fadeIn(400);
+				$('.bg__container.bg--2').css({
+					zIndex: '1'
+				});
+			});
 		}
+	}
+	servicesBgChange();
+
+	window.addEventListener('resize', function() {
+		servicesBgChange();
 	});
 
 
@@ -215,7 +289,7 @@ $(document).ready(function() {
                     $('.st1').removeClass('isAnim');
                     $('.st2').removeClass('isAnim');
                 });
-                $('.scissors__line').addClass('firstAnim'); // первый шаг анимации линии разреза
+                // $('.scissors__line').addClass('firstAnim'); // первый шаг анимации линии разреза
                 break;
             case 2: 
                 $('.st1').addClass('isAnim');
@@ -228,10 +302,12 @@ $(document).ready(function() {
                     // Вставить сюда функцию, вызывающую открытие блока
                     // с акцией и удаляющую ножницы
                     $('.scissors').hide();
-                    $('.scissors__line').hide(); // Удалять линию разреза после анимации
-                    $('.surprise-block').addClass('active');
+                    // $('.scissors__line').hide(); // Удалять линию разреза после анимации
+                    // $('.surprise-block').addClass('active');
+                    $('.surprise-block').slideDown();
+                    bodyHeight();
                 });
-                $('.scissors__line').addClass('secondAnim'); // Второй шаг анимации линии разреза
+                // $('.scissors__line').addClass('secondAnim'); // Второй шаг анимации линии разреза
                 $('.surprise-block_audio')[0].play();
                 break;
             default:
@@ -239,5 +315,53 @@ $(document).ready(function() {
                 break;
         }
     });
+
+
+
+
+
+    // Vacancy form opened function
+	$('.vacancy__card').on('click', function() {
+		$('#vacancy_' + $(this).attr('data-number')).addClass('opened');
+		$('html').css({
+			overflow: 'hidden'
+		});
+		// alert(window.location.hash);
+	});
+
+    $('.vacancy-popup__close').on('click', function() {
+    	$('.vacancy__popup').removeClass('opened');
+    	$('html').css({
+			overflow: 'auto'
+		});
+    });
+
+
+
+    // Subscribe form opened function
+	$('.subscribe__btn').on('click', function() {
+		$('.subscribe-popup').addClass('opened');
+		$('html').css({
+			overflow: 'hidden'
+		});
+		// alert(window.location.hash);
+	});
+
+    $('.subscribe-popup__close').on('click', function() {
+    	$('.subscribe-popup').removeClass('opened');
+    	$('html').css({
+			overflow: 'auto'
+		});
+    });
+
+
+
+    // get the name of uploaded file
+	$('input[type="file"]').change(function(){
+		var value = $("input[type='file']").val();
+		var fileName = value.replace(/^.*[\\/]/, '');
+		$('.file-input__label').text(fileName);
+		$('.file-input__wrapper').addClass('selected');
+	});
 
 });

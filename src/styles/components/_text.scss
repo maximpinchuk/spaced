@@ -3,33 +3,86 @@
 
 
 
+.main__title {
+	position: relative;
+    margin: 0 0 16px 0;
+
+    &.left {
+    	text-align: left;
+    }
+
+    &.center {
+    	text-align: center;
+    }
+
+    &.right {
+    	text-align: right;
+    }
+
+    .title--huge {
+        position: relative;
+        display: inline-block;
+        margin-top: -23px;
+        width: 100%;
+        font-family: 'RelaweyExtraBold', sans-serif;
+        font-size: 8.25rem;
+        color: #191919;
+        opacity: 0.04;
+        text-transform: lowercase;
+        z-index: 0;
+
+        @include respond-to(extrasmall) {
+            // top: -30%;
+            font-size: 4.25rem;
+        }
+    }
+
+    .title--normal {
+    	display: block;
+    	font-family: 'RelaweyBold', sans-serif;
+	    font-size: 2.5rem;
+	    color: $accent-color;
+	    margin-top: -60px;
+
+	    @include respond-to(extrasmall) {
+	        font-size: 1.75rem;
+	        margin-top: -30px;
+	    }
+		
+		@include selection();
+    }
+}
+
 .title {
 	margin: 0;
 	font-family: 'RelaweyBold', sans-serif;
-	font-size: 2.5rem;
+	font-size: 2.375rem;
 	color: $accent-color;
-	line-height: (46/40);
+	line-height: (48/38);
 	letter-spacing: -0.04em;
 
-	&::selection {
-		background: $accent-color;
-		color: $select--color;
+	@include respond-to(extrasmall) {
+		font-size: 2.25rem;
 	}
+
+	@include selection();
 }
 
 .subtitle {
 	margin: 0;
-	padding: 25px 0 0 0;
+	padding: 40px 0 0 0;
 	max-width: 840px;
 	font-family: 'RelaweyRegular', sans-serif;
-	font-size: 1.125rem;
-	color: #191919;
-	line-height: (26/16);
+	font-size: 1rem;
+	color: $text-secondary-color;
+	line-height: (24/16);
 
-	&::selection {
-		background: $accent-color;
-		color: $select--color;
+	@include respond-to(extrasmall) {
+		padding: 25px 0 20px 0;
+		font-size: 0.875rem;
 	}
+
+	@include selection();
 }
 
 .text {
@@ -39,12 +92,13 @@
 		font-size: 1.125rem;
 		color: #191919;
 		line-height: (26/16);
+
+		@include respond-to(extrasmall) {
+			font-size: 1rem;
+		}
 	}
 
-	&::selection {
-		background: $accent-color;
-		color: $select--color;
-	}
+	@include selection();
 }
 
 .text--left {

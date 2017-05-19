@@ -69,7 +69,7 @@ gulp.task('php:build', function () {
 gulp.task('js:build', function () {
     gulp.src(path.src.js) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
-        // .pipe(uglify()) //Сожмем наш js
+        .pipe(uglify()) //Сожмем наш js
         .pipe(rename({suffix: ".min"})) //Добавим суффикс .min
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер

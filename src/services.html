@@ -92,43 +92,8 @@
 		<!-- Dropdown menu -->
 		//= templates/_menu.html
 
-		<!-- Header logo -->
-		<a href="/index.html" class="logo__link">
-			<svg class="header__logo" width="132px" height="42px" viewBox="0 367.714 595.279 105.578">
-				<polygon display="none" points="421.608,455.154 421.608,438.195 421.608,438.195 421.608,432.347 421.608,432.347 421.608,421.822   480.083,421.822 480.083,405.449 421.608,405.449 421.608,404.864 421.608,399.017 421.608,384.982 479.498,384.982   479.498,368.609 403.481,368.609 403.481,470.941 480.083,470.941 480.083,455.154 "/>
-				<g>
-					<path d="M0,456.908l10.525-12.865c9.94,8.188,19.297,13.449,32.161,13.449c11.11,0,18.128-5.262,18.128-12.863   c0-7.604-4.094-11.111-22.806-15.789c-21.636-5.264-33.916-11.695-33.916-30.407c0-17.543,14.619-29.823,35.086-29.823   c14.618,0,26.898,4.678,36.839,12.865l-9.355,13.449c-9.356-7.017-18.713-10.525-28.068-10.525   c-10.525,0-16.373,5.263-16.373,12.28c0,7.602,4.678,11.11,23.975,15.789c21.636,5.263,32.746,12.865,32.746,30.406   c0,19.297-15.203,30.408-36.255,30.408C26.899,473.281,12.28,468.017,0,456.908z"/>
-					<path d="M292.377,420.653c0-29.238,21.636-52.628,52.628-52.628c18.712,0,30.407,6.432,39.764,15.788l-11.695,13.45   c-7.603-7.602-16.373-12.865-28.068-12.865c-19.882,0-33.916,15.789-33.916,36.255c0,19.882,14.034,36.255,33.916,36.255   c12.279,0,20.466-5.264,29.237-13.449l11.695,11.695c-10.525,11.109-22.221,18.127-41.518,18.127   C314.598,473.865,292.377,450.476,292.377,420.653z"/>
-					<polygon fill="none" points="214.605,431.179 214.605,431.179 215.775,428.839  "/>
-					<polygon points="240.919,369.194 223.961,369.194 178.935,472.111 197.647,472.111 207.003,450.476 214.605,431.179    214.605,431.179 215.775,428.839 219.283,420.068 219.283,420.068 232.148,390.246 249.691,431.179 214.02,431.179    207.003,447.552 256.122,447.552 266.648,472.111 285.945,472.111  "/>
-					<path d="M219.283,420.068l-3.509,8.771L219.283,420.068z"/>
-					<path d="M140.926,369.779h-40.349v16.373h19.882l0,0h18.712c13.45,0,22.221,6.432,22.221,18.127   c0,11.11-8.771,18.712-22.221,18.712H118.12l0,0l0,0l-18.127-18.127v67.247h18.127v-32.746h20.467   c22.221,0,40.933-11.695,40.933-35.085C179.52,383.229,164.316,369.779,140.926,369.779z"/>
-					<polygon points="99.993,404.28 99.993,404.28 100.577,404.864 100.577,404.28  "/>
-					<path d="M100.577,404.28h-0.584H100.577z"/>
-					<path d="M540.898,369.779h-38.009v16.373h28.068l0,0h9.94c21.636,0,35.67,14.619,35.67,34.5c0,20.466-14.034,34.501-35.67,34.501   h-19.882v-30.992l-18.127-17.543v65.492h38.009c32.161,0,54.382-22.221,54.382-50.874C595.28,392,573.059,369.779,540.898,369.779z   "/>
-					<polygon points="422.778,456.322 422.778,442.873 422.778,428.839 422.778,412.466 422.778,406.619 422.778,386.152    480.668,386.152 480.668,369.779 404.65,369.779 404.65,472.697 481.253,472.697 481.253,456.322  "/>
-					<rect x="422.193" y="412.466" width="51.458" height="16.373"/>
-				</g>
-			</svg>
-		</a>
-
-		<!-- Header Communication -->
-		<div class="header__communication-block">
-			<a href="#" class="communication-block__link">давайте пообщаемся
-				<span class="link__icon"></span>
-			</a>
-		</div>
-
-		<!-- Navigation icon -->
-		<div class="burger nav-icon off">
-			<span></span>
-		</div>
-
-		<!-- Border panels -->
-		<div class="border-panel--top"></div>
-		<div class="border-panel--right"></div>
-		<div class="border-panel--bottom"></div>
-		<div class="border-panel--left"></div>
+		<!-- Head repeat elements -->
+		//= templates/header.html
 
 
 		<!-- Header -->
@@ -164,42 +129,59 @@
 			</div>
 		</header>
 
-		<div class="main--content">
+		<div id="main-content__trigger"></div>
+		<div id="content" class="main--content">
 
-			<section class="block" id="anchor">
-				<div class="container" style="padding-bottom: 100px;">
-					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-						<h3 class="title">Качество — лучший инструмент для привлечения клиентов.</h3>
+			<section class="block" id="anchor" style="background: #fff;">
+				<div class="container anim__block" style="padding-bottom: 100px;">
+					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 anim__wrapper">
+						<h3 class="title anim__element">Качество — лучший инструмент для привлечения клиентов.</h3>
 					</div>
 					<div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
-					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-						<p class="text text--regular seriveces--page__descr">Весь наш творческий процесс полностью вращается вокруг ваших потребностей. Если вам нужны цифровые продукты, платформы, решения и услуги, которые революционизируют ваш бизнес, прекратите поиск. Мы подходим к каждому проекту - большому или малому - с одинаковым уровнем мыслей и заботы. И мы работаем вместе с вами на каждом шагу, чтобы это произошло.</p>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 anim__wrapper">
+						<p class="text text--regular seriveces--page__descr anim__element">Весь наш творческий процесс полностью вращается вокруг ваших потребностей. Если вам нужны цифровые продукты, платформы, решения и услуги, которые революционизируют ваш бизнес, прекратите поиск. Мы подходим к каждому проекту - большому или малому - с одинаковым уровнем мыслей и заботы. И мы работаем вместе с вами на каждом шагу, чтобы это произошло.</p>
 					</div>
 				</div>
 				<div class="container">
 					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h3 class="title">Что умеем делать</h3>
-							<p class="subtitle">Может быть вам покажется, что мы самоуверенные наглецы. Да, возможно, но наши работы нравятся нам, а самое главное, что клиенты просто в восторге.</p>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 anim__block">
+							<div class="anim__wrapper fadeUp">
+								<h3 class="title anim__element">Что умеем делать</h3>
+							</div>
+							<div class="anim__wrapper">
+								<p class="subtitle anim__element" style="transition-delay: 0.2s;">Может быть вам покажется, что мы самоуверенные наглецы. Да, возможно, но наши работы нравятся нам, а самое главное, что клиенты просто в восторге.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="container service-block">
-					<div class="service-block__bg web">
+				<div class="container service-block anim__block">
+					<div class="service-block__bg">
 						<div class="bg__opacity"></div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div class="service__title">Веб-проекты</div>
-							<div class="service__subtitle">Мы разрабатываем <span>магазины</span></div>
+							<div class="anim__wrapper fadeUp">
+								<div class="service__title anim__element" style="transition-delay: 0.7s;">Веб-проекты</div>
+							</div>
+							<div class="anim__wrapper fadeUp">
+								<div class="service__subtitle anim__element" style="transition-delay: 0.9s;">
+									<span>Мы разрабатываем&nbsp</span>
+									<div class="subtitle__products">
+										<span>магазины</span>
+										<span>корпоративные сайты</span>
+										<span>порталы</span>
+										<span>визитки</span>
+									</div>
+								</div>	
+							</div>
 						</div>
 					</div>
 					<div class="row service__row">
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<div class="service__sometext">Что сделаем</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<div class="service__sometext anim__element" style="transition-delay: 1.1s;">Что сделаем</div>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class="service__list service__list--link">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class="service__list service__list--link anim__element" style="transition-delay: 1.1s;">
 								<li class="service__list--link__item">
 									<a href="#" class="service__list--link__item__link">Landing Page</a>
 								</li>
@@ -214,8 +196,8 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class=" service__list service__list--link">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class=" service__list service__list--link anim__element" style="transition-delay: 1.1s;">
 								<li class="service__list--link__item">
 									<a href="#" class="service__list--link__item__link">Landing Page</a>
 								</li>
@@ -230,24 +212,24 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<a href="#" class="service__link">ПРИМЕРЫ РАБОТ
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<a href="#" class="service__link anim__element" style="transition-delay: 1.1s;">ПРИМЕРЫ РАБОТ
 								<span class="link__icon"></span>
 							</a>
 						</div>
 					</div>
 					<div class="row service__row">
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<div class="service__sometext">С чем работаем</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<div class="service__sometext anim__element" style="transition-delay: 1.3s;">С чем работаем</div>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class="service__list service__list--nolink">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class="service__list service__list--nolink anim__element" style="transition-delay: 1.3s;">
 								<li class="service__list--nolink__item">1C-Битрикс</li>
 								<li class="service__list--nolink__item">Magento</li>
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class=" service__list service__list--nolink">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class=" service__list service__list--nolink anim__element" style="transition-delay: 1.3s;">
 								<li class="service__list--nolink__item">WordPress</li>
 								<li class="service__list--nolink__item">MODx</li>
 							</ul>
@@ -256,22 +238,34 @@
 					</div>
 				</div>
 
-				<div class="container service-block">
-					<div class="service-block__bg marketing">
+				<div class="container service-block anim__block">
+					<div class="service-block__bg">
 						<div class="bg__opacity"></div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div class="service__title">Интернет-маркетинг</div>
-							<div class="service__subtitle">Продвигаем бренды с помощью<br><span>SMM</span></div>
+							<div class="anim__wrapper fadeUp">
+								<div class="service__title anim__element" style="transition-delay: 0.7s;">Интернет-маркетинг</div>
+							</div>
+							<div class="anim__wrapper">
+								<div class="service__subtitle anim__element" style="transition-delay: 0.9s;">
+									<span>Продвигаем бренды с помощью&nbsp</span>
+									<div class="subtitle__products">
+										<span>SMM</span>
+										<span>SEO</span>
+										<span>e-mail</span>
+										<span>контекстной рекламы</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row service__row">
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<div class="service__sometext">Что сделаем</div>
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<div class="service__sometext anim__element" style="transition-delay: 1.1s;">Что сделаем</div>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class="service__list service__list--link">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class="service__list service__list--link anim__element" style="transition-delay: 1.1s;">
 								<li class="service__list--link__item">
 									<a href="#" class="service__list--link__item__link">SMM/SMO</a>
 								</li>
@@ -283,8 +277,8 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<ul class=" service__list service__list--link">
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<ul class=" service__list service__list--link anim__element" style="transition-delay: 1.1s;">
 								<li class="service__list--link__item">
 									<a href="#" class="service__list--link__item__link">Email-маркетинг</a>
 								</li>
@@ -296,15 +290,15 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-							<a href="#" class="service__link">Успешные кейсы
+						<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 anim__wrapper">
+							<a href="#" class="service__link anim__element" style="transition-delay: 1.1s;">Успешные кейсы
 								<span class="link__icon"></span>
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="container-fluid" style="background: #7d6ade;">
+			<!-- <section class="container-fluid" style="background: #7d6ade;">
 				<div class="block">
 					<div class="container" style="text-align: center;">
 						<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -321,75 +315,19 @@
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<section class="container-fluid" style="background: #fff;">
-				<svg class="scissors" width="20px" height="19px" viewBox="0 0 466 361.5">
-					<path class="st1" d="M148.3,111.7c0,0,14.7-19.7,4.3-49c-21.3-60-79-62.7-79-62.7S3.5-4.4,0,62.1c5,67,69.5,79.5,69.5,79.5  s23.7,4.3,36,7c69.7,15.5,88.2,43.3,117,59c22,12,55.5,27.7,90.5,45.2c45.6,22.8,91.5,47.5,106.8,54.6c27.3,4.8,46.3-15.3,46.3-15.3  L148.3,111.7z M117.9,96.3c-8.5,14.7-32.4,16.7-53.5,4.5C43.3,88.7,33.1,66.9,41.6,52.3c8.5-14.7,32.4-16.7,53.5-4.5  C116.2,59.9,126.4,81.7,117.9,96.3z" />
-					<path class="st2" d="M466,69.5c0,0-19-20-46.3-15.2C404.5,61.3,358.6,86,313,108.8c-35,17.5-68.5,33.2-90.5,45.2  c-28.8,15.7-47.3,43.5-117,59c-12.3,2.7-36,7-36,7S5,232.5,0,299.5c3.5,66.5,73.7,62,73.7,62s57.7-2.7,79-62.7  c10.3-29.3-4.3-49-4.3-49L466,69.5z M94.1,316.9c-21.5,11.4-45.4,8.5-53.3-6.4c-8-15,3-36.4,24.5-47.8c21.5-11.4,45.4-8.5,53.3,6.4  C126.6,284.1,115.6,305.5,94.1,316.9z" />
-				</svg>
-				<div class="scissors__line"></div>
-				<div class="container surprise-block">
-					fjghdfkjg dfkjgh dkjfhgkjdf
-				</div>
-			</section>
-
-			<footer class="footer">
-				<div class="container">
-					<svg class="footer__logo" width="104px" height="20px" viewBox="0 367.714 595.279 105.578">
-						<polygon display="none" points="421.608,455.154 421.608,438.195 421.608,438.195 421.608,432.347 421.608,432.347 421.608,421.822   480.083,421.822 480.083,405.449 421.608,405.449 421.608,404.864 421.608,399.017 421.608,384.982 479.498,384.982   479.498,368.609 403.481,368.609 403.481,470.941 480.083,470.941 480.083,455.154 "/>
-						<g>
-							<path d="M0,456.908l10.525-12.865c9.94,8.188,19.297,13.449,32.161,13.449c11.11,0,18.128-5.262,18.128-12.863   c0-7.604-4.094-11.111-22.806-15.789c-21.636-5.264-33.916-11.695-33.916-30.407c0-17.543,14.619-29.823,35.086-29.823   c14.618,0,26.898,4.678,36.839,12.865l-9.355,13.449c-9.356-7.017-18.713-10.525-28.068-10.525   c-10.525,0-16.373,5.263-16.373,12.28c0,7.602,4.678,11.11,23.975,15.789c21.636,5.263,32.746,12.865,32.746,30.406   c0,19.297-15.203,30.408-36.255,30.408C26.899,473.281,12.28,468.017,0,456.908z"/>
-							<path d="M292.377,420.653c0-29.238,21.636-52.628,52.628-52.628c18.712,0,30.407,6.432,39.764,15.788l-11.695,13.45   c-7.603-7.602-16.373-12.865-28.068-12.865c-19.882,0-33.916,15.789-33.916,36.255c0,19.882,14.034,36.255,33.916,36.255   c12.279,0,20.466-5.264,29.237-13.449l11.695,11.695c-10.525,11.109-22.221,18.127-41.518,18.127   C314.598,473.865,292.377,450.476,292.377,420.653z"/>
-							<polygon fill="none" points="214.605,431.179 214.605,431.179 215.775,428.839  "/>
-							<polygon points="240.919,369.194 223.961,369.194 178.935,472.111 197.647,472.111 207.003,450.476 214.605,431.179    214.605,431.179 215.775,428.839 219.283,420.068 219.283,420.068 232.148,390.246 249.691,431.179 214.02,431.179    207.003,447.552 256.122,447.552 266.648,472.111 285.945,472.111  "/>
-							<path d="M219.283,420.068l-3.509,8.771L219.283,420.068z"/>
-							<path d="M140.926,369.779h-40.349v16.373h19.882l0,0h18.712c13.45,0,22.221,6.432,22.221,18.127   c0,11.11-8.771,18.712-22.221,18.712H118.12l0,0l0,0l-18.127-18.127v67.247h18.127v-32.746h20.467   c22.221,0,40.933-11.695,40.933-35.085C179.52,383.229,164.316,369.779,140.926,369.779z"/>
-							<polygon points="99.993,404.28 99.993,404.28 100.577,404.864 100.577,404.28  "/>
-							<path d="M100.577,404.28h-0.584H100.577z"/>
-							<path d="M540.898,369.779h-38.009v16.373h28.068l0,0h9.94c21.636,0,35.67,14.619,35.67,34.5c0,20.466-14.034,34.501-35.67,34.501   h-19.882v-30.992l-18.127-17.543v65.492h38.009c32.161,0,54.382-22.221,54.382-50.874C595.28,392,573.059,369.779,540.898,369.779z   "/>
-							<polygon points="422.778,456.322 422.778,442.873 422.778,428.839 422.778,412.466 422.778,406.619 422.778,386.152    480.668,386.152 480.668,369.779 404.65,369.779 404.65,472.697 481.253,472.697 481.253,456.322  "/>
-							<rect x="422.193" y="412.466" width="51.458" height="16.373"/>
-						</g>
-					</svg>
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 footer__col left">
-							<p class="footer__title">давайте пообщаемся</p>
-							<a href="mailto:contact@spaced.by" class="footer__email">contact@spaced.by</a>
-							<br>
-							<a href="tel:+375173275500" class="footer__tel">8 017 327 55 00</a>
-							<span class="slash"> / </span>
-							<a href="tel:+375296414860" class="footer__tel">8 029 641 48 60</a>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 footer__col center">
-							<p class="footer__title">подписывайся</p>
-							<a href="#" target="_blank" class="footer__socials">VK</a>
-							<span class="slash"> / </span>
-							<a href="#" target="_blank" class="footer__socials">FACEBOOK</a>
-							<span class="slash"> / </span>
-							<a href="#" target="_blank" class="footer__socials">INSTAGRAM</a>
-							<span class="slash"> / </span>
-							<a href="#" target="_blank" class="footer__socials">LINKEDIN</a>
-							<br>
-							<a href="#" target="_blank" class="footer__presentation-link">Наша презентация
-								<span class="presentation-link__icon"></span>
-							</a>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 footer__col right">
-							<p class="footer__title">мы находимся</p>
-							<p class="footer__adress">Минск, ул. Ленина 9, оф. 3А</p>
-							<a href="#" target="_blank" class="footer__map-link">Показать на карте
-								<span class="map-link__icon"></span>
-							</a>
-						</div>
-					</div>
-					<p class="footer__copyright">2017 © ООО «Спэйсд Диджитал». Все права защищены.</p>
-				</div>
-			</footer>
+			</section> -->
 		</div>
 
-		
+		<!-- Surprise block -->
+		//= templates/surprise-block.html
+
+		<!-- Footer -->
+		//= templates/footer.html
+
+		<!-- Chat form -->
+		//= templates/chat-form.html
 	
+
 
 		<!-- LINKED FILES -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>

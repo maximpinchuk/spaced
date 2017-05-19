@@ -6,6 +6,7 @@
 // base/
 @import "base/normalize";
 @import "base/typography";
+@import "base/ie-support";
 
 
 // components/
@@ -21,6 +22,8 @@
 @import "components/form";
 @import "components/scissors";
 @import "components/surprise-block";
+@import "components/conversational-form";
+@import "components/subscribe-popup";
 
 
 // layout/
@@ -31,19 +34,24 @@
 
 // pages/
 @import "pages/home";
+@import "pages/about";
 @import "pages/services";
+@import "pages/portfolio";
+@import "pages/vacancies";
+@import "pages/contacts";
+@import "pages/404";
 
 
 // vendors/
 @import "vendors/pagepiling";
 @import "vendors/swiper";
 @import "vendors/animsition";
-@import "vendors/mCustomScrollbar";
-@import "vendors/customScroll";
+@import "vendors/conversational-form";
 
 
 // vendors-extensions/
 @import "vendors-extentions/swiper";
+@import "vendors-extentions/conversational-form";
 
 
 
@@ -58,7 +66,28 @@
     background: $accent-color;
 }
 
+@include respond-to(extrasmall) {
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    ::-webkit-scrollbar-track-piece {
+        background: $scrollbar-track-piece;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $accent-color;
+    }
+}
 
+
+
+//html styles
+html {
+    -webkit-font-smoothing: antialiased;
+
+    @include respond-to(extralarge) {
+        font-size: 21px;
+    }
+}
 
 // Body styles
 body {
@@ -66,14 +95,53 @@ body {
     margin: 0;
     z-index: 0;
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
 
     &.page--loaded {
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+// Some extra classes
+.no-gutter {
+    padding: 0 !important;
+}
+
+.padding-top--250 {
+    padding-top: 250px;
+
+    @include respond-to(extrasmall) {
+        padding-top: 0;
+    }
+}
+
+.seperate-block {
+    height: 20vh;
+
+    @include respond-to(extrasmall) {
+        height: 120px;
     }
 }
 
 .main--content {
-    position: relative;
-    background: $white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
     z-index: 2;
+    transition: background 1s ease-out;
+
+    @include respond-to(extrasmall) {
+        position: relative;
+    }
+
+    @include respond-to(small) {
+        position: relative;
+    }
+
+    &.is-relative {
+        position: relative;
+        margin-top: -100vh;
+    }
 }
