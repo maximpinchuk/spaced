@@ -104,14 +104,41 @@ function animationsInit() {
 	// Portfolio text animation
 	if (bodyWidth >= 992) {
 		// Header pin
-		if($('.header').length) {
+		// if($('#header').length) {
+		// 	var scene = new ScrollMagic.Scene({
+		// 	    triggerElement: '#main-content__trigger',
+		// 	    triggerHook: 'onEnter'
+		// 	})
+		// 	.setClassToggle('.main--content', 'is-relative')
+		// 	.addTo(controller);
+		// }
+
+		if ($('#header').hasClass('header--cases')) {
+			var scene = new ScrollMagic.Scene({
+			    triggerElement: '#content__trigger',
+			    triggerHook: 'onEnter'
+			})
+			.setClassToggle('.header--cases', 'exit')
+			.addTo(controller);
+		} else {
 			var scene = new ScrollMagic.Scene({
 			    triggerElement: '#main-content__trigger',
 			    triggerHook: 'onEnter'
-	  		})
+			})
 			.setClassToggle('.main--content', 'is-relative')
 			.addTo(controller);
 		}
+
+
+		// Header case pin
+		// if($('#case-header').length) {
+		// 	var scene = new ScrollMagic.Scene({
+		// 	    triggerElement: '#content__trigger',
+		// 	    triggerHook: 'onEnter'
+		// 	})
+		// 	.setClassToggle('.tmp-bg', 'change-bg')
+		// 	.addTo(controller);
+		// }
 
 
 

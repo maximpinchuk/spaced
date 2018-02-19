@@ -53,6 +53,8 @@ $(document).ready(function() {
 		var contentElement = document.getElementById('content');
 		var footerElement = document.getElementById('footer');
 
+		// if($('#header').length && $('#content').length && $('#footer').length) {
+
 		var headerHeight = headerElement.clientHeight;
 		var contentHeight = contentElement.clientHeight;
 		var footerHeight = footerElement.clientHeight;
@@ -62,6 +64,10 @@ $(document).ready(function() {
 		$('body').css({
 			height: totalHeight
 		});
+
+		// document.body.style.height = totalHeight;
+
+		// }
 	}
 	bodyHeight();
 
@@ -95,7 +101,9 @@ $(document).ready(function() {
 
 	// Проверка на наличие элемента на странице для плагина
 	if($('#pagepilling').length) {
-		$('#pagepiling').pagepiling({});
+		$('#pagepiling').pagepiling({
+			normalScrollElements: '.m-content'
+		});
 	}
 
 

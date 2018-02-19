@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<title>Spaced</title>
+		<title>Blenda</title>
 		<meta charset="utf-8">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -79,8 +79,8 @@
 				transition: transform 0.5s 0.5s;
 			}
 		</style>
-			
-		<link rel="stylesheet" type="text/css" href="styles/main.min.css">
+
+		<link rel="stylesheet" type="text/css" href="../styles/main.min.css">
 	</head>
 	<body>
 		<!-- Pace substrate -->
@@ -92,16 +92,11 @@
 		<!-- Head repeat elements -->
 		//= templates/header.html
 
-
-		<!-- Header -->
-		<header id="header" class="header">
-			<!-- Фоны и прочее дерьмо -->
-			<div class="header__bg header__bg--img" style="background: url('img/bg-portfolio.jpg') no-repeat center; background-size: cover;"></div>
-			<div class="header__bg header__bg--opacity"></div>
+		<header id="header" class="header header--cases">
 
 			<div class="header__container">
 				<div class="header__animation__block">
-					<div class="header__subtitle header__animation__element" style="transition-delay: 0.5s;">портфолио</div>
+					<div class="header__subtitle header__animation__element" style="transition-delay: 0.5s;">blenda фотошкола</div>
 				</div>
 				<div class="header__animation__block">
 					<div class="header__title header__animation__element" style="transition-delay: 0.7s;">Успех наших клиентов</div>
@@ -123,65 +118,41 @@
 			</div>
 		</header>
 
-		<div id="main-content__trigger"></div>
-		<div id="content" class="main--content" style="background: #fff;">
-			<section class="block" id="anchor">
-				<div class="container anim__block">
-					<div class="anim__wrapper">
-						<h3 class="title anim__element">Создаем шедевры</h3>
-					</div>
-					<div class="anim__wrapper">
-						<p class="subtitle anim__element" style="transition-delay: 0.2s;">В каждом проекте мы уделяем также много внимания дизайну и интерфейсу как чистому коду и рабочему функционалу. В каждом проекте мы уделяем также много внимания дизайну и интерфейсу как чистому коду и рабочему функционалу.</p>
-					</div>
-				</div>
-			</section>
+		<div class="tmp-bg" style="background: url('../img/bg-portfolio.jpg') no-repeat center; background-size: cover;"></div>
 
-			<div class="portfolio__item__wrapper anim__block">
-				<a class="portfolio__item" href="#" style="background: url('img/cases/case__bg--Kristl.jpg') no-repeat center; background-size: cover;">
-					<div class="container">
-						<div class="anim__wrapper">
-							<h5 class="item__title anim__element">Kristl Wellness Club 
-								<span class="item__count">01</span>
-							</h5>
-						</div>
-						<div class="anim__wrapper">
-							<p class="item__categories anim__element">SMM<span class="slash"> / </span>Контекстная реклама</p>
-						</div>
+		<div id="content" class="main--content" style="position: relative; background: transparent;">
+			<div class="case-tasks__block">
+				<div class="tasks__container">
+					<div class="task__title">задача</div>
+					<div class="task__descr">Оперативно сделать редизайн сайта самой крупной фотошколы в Беларуси.</div>
+					<div class="task__list">Нашей целью было в сжатые сроки разработать продающий сайт, который:</div>
+					<div class="task__list__item">
+						<span class="item__number">1. </span>
+						Начнёт приносить больше клиентов, чем его старая версия
 					</div>
-				</a>
+					<div class="task__list__item">
+						<span class="item__number">2. </span>
+						Будет современным, стильным и, в то же время, удобным и понятным даже для той аудитории сайта, которая не является активным пользователем интернета
+					</div>
+					<span class="task__link">пролистайте вниз
+						<svg class="link__icon" width="9px" height="11px" viewBox="880.244 0 1867.86 2267.719">
+							<g>
+								<path d="M924.674,1440.696c-59.239-59.238-59.239-154.575,0-213.813c29.619-29.619,68.031-44.429,106.906-44.429   s77.287,14.81,106.906,44.429l524.815,524.815V151.335C1663.302,68.031,1730.871,0,1814.638,0   c83.304,0,151.335,67.568,151.335,151.335v1600.362l523.89-524.815c59.239-59.238,154.575-59.238,213.813,0   s59.238,154.575,0,213.813l-782.594,782.595c-28.231,28.231-66.644,44.429-106.907,44.429s-78.676-15.734-106.907-44.429   L924.674,1440.696z"/>
+							</g>
+						</svg>
+					</span>
+				</div>		
 			</div>
+			<div id="content__trigger"></div>
 
-			<div class="portfolio__item__wrapper anim__block">
-				<a class="portfolio__item" href="#" style="background: url('img/cases/case__bg--Kristl.jpg') no-repeat center; background-size: cover;">
-					<div class="container">
-						<div class="anim__wrapper">
-							<h5 class="item__title anim__element">Статум Строй 
-								<span class="item__count">02</span>
-							</h5>
-						</div>
-						<div class="anim__wrapper">
-							<p class="item__categories anim__element">Комплексная стратегия<span class="slash"> / </span>Контекстная реклама</p>
-						</div>
-					</div>
-				</a>
+			<div class="container-fluid" style="height: 100vh; background: #fff;">
+				
 			</div>
-
-			<div class="portfolio__item__wrapper anim__block">
-				<a class="portfolio__item" href="cases/blenda.html" style="background: url('img/cases/case__bg--Blenda.jpg') no-repeat center; background-size: cover;">
-					<div class="container">
-						<div class="anim__wrapper">
-							<h5 class="item__title anim__element">Фотошкола Blenda 
-								<span class="item__count">03</span>
-							</h5>
-						</div>
-						<div class="anim__wrapper">
-							<p class="item__categories anim__element">Веб-разработка</p>
-						</div>
-					</div>
-				</a>
-			</div>
-
 		</div>
+
+		<!-- <div id="content" class="main--content" style="position: relative;">
+			<div style="height: 100vh;"></div>
+		</div> -->
 
 		<!-- Surprise block -->
 		//= templates/surprise-block.html
@@ -193,7 +164,9 @@
 		//= templates/chat-form.html
 
 		<!-- LINKED FILES -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-		<script src="js/main.min.js"></script>
+		<script src="../js/main.min.js"></script>
 	</body>
 </html>

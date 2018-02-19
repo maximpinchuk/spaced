@@ -87,6 +87,7 @@
 
 	&:after {
 		content: '';
+		display: block;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -112,6 +113,27 @@
 		@include respond-to(small) {
 			display: block;
 			height: auto;
+		}
+	}
+
+	&.header--cases {
+		margin-bottom: 0;
+		background: transparent;
+
+		&:after {
+			position: fixed;
+		}
+
+		&.exit {
+			&:after {
+				// position: absolute;
+				display: none;
+			}
+		}
+
+		.header__bg {
+			// position: fixed;
+			// z-index: -1;
 		}
 	}
 

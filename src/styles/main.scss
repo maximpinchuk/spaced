@@ -39,6 +39,7 @@
 @import "pages/portfolio";
 @import "pages/vacancies";
 @import "pages/contacts";
+@import "pages/case-page";
 @import "pages/404";
 
 
@@ -95,7 +96,6 @@ body {
     margin: 0;
     z-index: 0;
     overflow: hidden;
-    -webkit-font-smoothing: antialiased;
 
     &.page--loaded {
         overflow-y: auto;
