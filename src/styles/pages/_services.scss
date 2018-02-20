@@ -5,8 +5,11 @@
 
 .seriveces--page__descr {
 	padding: 4px 0 0 0;
-}
 
+	@include respond-to(extrasmall) {
+		padding: 34px 0 0 0;
+	}
+}
 
 // Карточки с усулгами
 .service-block {
@@ -14,64 +17,187 @@
 	position: relative;
 	padding: 0 15px 120px 15px;
 	margin: 50px 0 0 0;
-}
 
-.service-block__bg {
-	position: absolute;
-	top: 0;
-	left: 60px;
-	width: 100%;
-	height: 100%;
+	&.animated {
+		.service-block__bg {
+			width: 100%;
 
-	&.web {
-		background: url('../img/service-card__bg--web.jpg') no-repeat center;
-		background-size: cover;
+			&:after {
+				width: 0;
+				transition: all 0.5s 0.7s;
+			}
+		}
+
+		.service__subtitle {
+			.subtitle__products {
+				span {
+					animation: animateWord 12s linear infinite 0s;
+				}
+			}
+		}		
 	}
 
-	&.marketing {
-		background: url('../img/service-card__bg--marketing.jpg') no-repeat center;
-		background-size: cover;
-	}
-
-	.bg__opacity {
+	.service-block__bg {
 		position: absolute;
 		top: 0;
-		left: 0;
-		width: 100%;
+		left: 60px;
+		width: 0;
 		height: 100%;
-		background: #fafafa;
-		opacity: 0.95;
-	}
-}
+		background: #f9f9f9;
+		transition: all 0.5s 0.2s;
 
-.service__title {
-	margin: 36px 0 10px 0;
-	font-family: 'RelaweyBold', sans-serif;
-	font-size: 2.25rem;
-	color: #191919;
-	line-height: (48/36);
+		@include respond-to(extrasmall) {
+			width: 100%;
+			left: 0;
 
-	@include selection();
-}
+			// &:after {
+			// 	width: 0;
+			// }
+		}
 
-.service__subtitle {
-	font-family: 'RelaweySemiBold', sans-serif;
-	font-size: 1.5rem;
-	color: #191919;
-	line-height: (48/24);
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-
-	@include selection();
-
-	span {
-		color: $accent-color;
-
-		&::selection {
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
 			background: $accent-color;
-			color: $select--color;
+			transition: all 0.5s;
+
+			@include respond-to(extrasmall) {
+				width: 0;
+			}
+		}
+
+		// &.web {
+		// 	background: url('../img/service-card__bg--web.jpg') no-repeat center;
+		// 	background-size: cover;
+		// }
+
+		// &.marketing {
+		// 	background: url('../img/service-card__bg--marketing.jpg') no-repeat center;
+		// 	background-size: cover;
+		// }
+
+		// .bg__opacity {
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	background: #fafafa;
+		// 	opacity: 0.9;
+		// }
+	}
+
+	.service__title {
+		margin: 36px 0 10px 0;
+		font-family: 'RelaweyBold', sans-serif;
+		font-size: 2.25rem;
+		color: #191919;
+		line-height: (48/36);
+
+		@include respond-to(extrasmall) {
+			font-size: 2rem;
+		}
+
+		@include selection();
+	}
+
+	.service__subtitle {
+
+		span {
+			font-family: 'RelaweySemiBold', sans-serif;
+			font-size: 1.5rem;
+			color: #191919;
+			line-height: (48/24);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+
+			@include respond-to(extrasmall) {
+				font-size: 1.25rem;
+				line-height: 1.33;
+			}
+
+			@include selection();
+		}
+
+		.subtitle__products {
+			display: inline-block;
+
+			@include respond-to(extrasmall) {
+				display: block;
+				height: 38px;
+				overflow: hidden;
+			}
+
+			span {
+				position: absolute;
+				top: 0;
+				font-family: 'RelaweySemiBold', sans-serif;
+				font-size: 1.5rem;
+				color: $accent-color;
+				// line-height: (48/24);
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				opacity: 0;
+				overflow: hidden;
+
+				@include respond-to(extrasmall) {
+					top: auto;
+					font-size: 1.25rem;
+					animation: animateWord 12s linear infinite 0s;
+				}
+
+				@include selection();
+
+				&:nth-child(1) {
+					animation-delay: 0s;
+				}
+
+				&:nth-child(2) {
+					animation-delay: 3s;
+				}
+
+				&:nth-child(3) {
+					animation-delay: 6s;
+				}
+
+				&:nth-child(4) {
+					animation-delay: 9s;
+				}
+			}
 		}
 	}
+}
+
+@keyframes animateWord {
+	0% { 
+		opacity: 0; 
+	}
+    2% { 
+    	opacity: 0; 
+    	transform: translateY(-30px); 
+    }
+    5% { 
+    	opacity: 1; 
+    	transform: translateY(0);
+    }
+    17% { 
+    	opacity: 1; 
+    	transform: translateY(0); 
+    }
+    20% { 
+    	opacity: 0; 
+    	transform: translateY(30px); 
+    }
+    80% { 
+    	opacity: 0; 
+    }
+    100% { 
+    	opacity: 0; 
+    }
 }
 
 .service__row {
@@ -82,6 +208,10 @@
 	font-family: 'RelaweyBold', sans-serif;
 	font-size: 1.3125rem;
 	color: #191919;
+
+	@include respond-to(extrasmall) {
+		padding-bottom: 30px;
+	}
 
 	@include selection();
 }
@@ -103,6 +233,10 @@
 				font-size: 1.125rem;
 				color: #191919;
 				transition: padding 0.3s, color 0.3s;
+
+				@include respond-to(extrasmall) {
+					font-size: 1rem;
+				}
 
 				&:hover {
 					padding-left: 38px;
@@ -138,6 +272,10 @@
 			font-size: 1.125rem;
 			color: #191919;
 
+			@include respond-to(extrasmall) {
+				font-size: 1rem;
+			}
+
 			&:before {
 				content: '';
 				position: absolute;
@@ -165,6 +303,10 @@
 	line-height: (34/13);
 	letter-spacing: 0.075em;
 	text-transform: uppercase;
+
+	@include respond-to(extrasmall) {
+		padding: 20px 20px 0 0;
+	}
 
 	@include selection();
 

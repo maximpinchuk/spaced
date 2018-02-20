@@ -1,0 +1,66 @@
+// IE support styles
+
+
+.ie--support {
+
+	// Fix navigation link hover effect
+	.nav {
+		.nav__item {
+			.nav__item__link {
+				background: none;
+				color: $text-menu-primary-color;
+
+				&:hover {
+					color: $accent-color;
+					transition: color 0.3s;
+				}
+			}
+		}
+	}
+
+	// Fix form fieldset height
+	.form__input-block {
+		height: auto;
+	}
+
+	// Fix mainpage services block content horizontal alignement
+	.mainpage--services {
+
+		.services__item {
+
+			.services__item__container {
+				position: relative;
+				transform: translate3d(0, -150px, 0);
+
+				.item__descr {
+					.descr__subtitle {
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+					}
+
+					.descr__list-block {
+						display: block;
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+
+						.list-block__list {
+							display: inline-block;
+						}
+					}
+
+					.descr__link {
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+					}
+				}
+			}
+		}
+	}
+
+	// Fix contacts block on header
+	.header {
+		.header__contacts-block {
+			top: 27%;
+		}
+	}
+}

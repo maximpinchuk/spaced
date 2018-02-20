@@ -1,0 +1,116 @@
+// ../vendors-extensions/_conversational-form.scss
+// Conversational form extension styles
+
+
+
+.conversational-form {
+  font-family: 'RelaweyRegular', sans-serif;
+  font-size: 0.875rem;
+  z-index: 998;
+}
+
+.conversational-form .conversational-form-inner {
+	padding: 54px 40px 10px 20px;
+
+	@include respond-to(extrasmall) {
+		padding: 60px 10px 10px 10px;
+	}
+}
+
+cf-input input, cf-input textarea {
+	min-height: 2.8125rem;
+    padding: 0.9375rem 2.5rem 0.9375rem 0.9375rem;
+	font-family: 'RelaweyRegular', sans-serif;
+	font-size: 0.75rem;
+	color: #191919;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+cf-chat-response {
+	// min-width: 140px;
+	min-width: 8.75rem;
+
+	@include respond-to(extrasmall) {
+		max-width: 80%;
+	}
+}
+
+cf-chat-response thumb {
+	// width: 34px;
+	// height: 34px;
+	width: 2.125rem;
+	height: 2.125rem;
+}
+
+cf-chat-response.user {
+	color: $white;
+	// padding-right: 44px;
+	padding-right: 2.75rem;
+}
+
+cf-chat-response.robot {
+	color: $white;
+	// padding-left: 44px;
+	padding-left: 2.75rem;
+}
+
+cf-chat-response.robot text, cf-chat-response.user text {
+	background: $accent-color;
+	color: $white;
+}
+
+cf-chat scrollable {
+  padding-right: 10px;
+}
+
+.cf-button {
+	color: $accent-color;
+	border: 1px solid $accent-color;
+}
+
+.cf-button:hover {
+	background: rgba(125, 106, 222, 0.15);
+}
+
+// Chat 'Radio' button customization
+cf-radio-button.cf-button cf-radio {
+	background: rgba(125, 106, 222, 0.15);
+}
+
+cf-radio-button.cf-button:hover cf-radio, 
+cf-radio-button.cf-button.highlight cf-radio, 
+cf-radio-button.cf-button:focus cf-radio {
+	background: rgba(125, 106, 222, 1);
+}
+
+cf-radio-button.cf-button[checked="checked"] cf-radio {
+	background: rgba(125, 106, 222, 1);
+}
+
+// Chat 'Checkbox' button customization
+.cf-button.cf-checkbox-button cf-checkbox {
+	background: rgba(125, 106, 222, 0.15);
+}
+
+.cf-button.cf-checkbox-button:hover cf-checkbox,
+.cf-button.cf-checkbox-button.highlight cf-checkbox,
+.cf-button.cf-checkbox-button:focus cf-checkbox {
+	background: rgba(125, 106, 222, 1);
+}
+
+.cf-button.cf-checkbox-button cf-checkbox:after {
+	background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTNweCIgaGVpZ2h0PSIxMHB4IiB2aWV3Qm94PSIwIDAgNDg4Ljg3OCA0ODguODc4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODguODc4IDQ4OC44Nzg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8Zz4NCgkJPGc+DQoJCQk8cG9seWdvbiBzdHlsZT0iZmlsbDojN2Q2YWRlOyIgcG9pbnRzPSIxNDMuMjk0LDM0MC4wNTggNTAuODM3LDI0Ny42MDIgMCwyOTguNDM5IDEyMi4wMDksNDIwLjQ0NyAxMjIuMTQ5LDQyMC4zMDYgDQoJCQkJMTQ0LjQyMyw0NDIuNTggNDg4Ljg3OCw5OC4xMjMgNDM3LjA1NSw0Ni4yOTggCQkiLz4NCgkJPC9nPg0KCTwvZz4NCjwvc3ZnPg0K'); 
+}
+
+
+// Chat 'Send' button customization
+cf-input-button.cf-input-button div.cf-icon-progress {
+	background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMi4yNDhweCIgaGVpZ2h0PSIzMHB4IiB2aWV3Qm94PSIzLjg3NiAwIDIyLjI0OCAzMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzLjg3NiAwIDIyLjI0OCAzMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZmlsbD0iIzdENkFERSIgZD0iTTE0Ljk3OSwzMGMwLjY2MiwwLDEuMjAxLTAuNTQsMS4yMDEtMS4xOTlWNC4zNGw3Ljg0LDguNzhjMC4yMzksMC4yNiwwLjU2MSwwLjQsMC44OTksMC40DQoJCQljMC4yOCwwLDAuNTYyLTAuMSwwLjgtMC4zYzAuNS0wLjQ0LDAuNTQtMS4yLDAuMTAyLTEuN0wxNS44OCwwLjRjLTAuMjItMC4yNi0wLjU2MS0wLjQtMC45LTAuNGMtMC4xLDAtMC4xOCwwLjAyLTAuMjYsMC4wNA0KCQkJQzE0LjQyLDAuMSwxNC4xODEsMC4yOCwxNCwwLjUybC05LjgyLDExYy0wLjQ0LDAuNS0wLjQsMS4yNiwwLjEsMS43YzAuNSwwLjQzOSwxLjI2LDAuNCwxLjctMC4xbDcuOC04Ljc2djI0LjQ0MQ0KCQkJQzEzLjc4LDI5LjQ2LDE0LjMxOSwzMCwxNC45NzksMzB6Ii8+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=');
+	background-size: 21px 21px;
+}
+
+cf-input-button.cf-input-button:hover, 
+cf-input-button.cf-input-button:focus {
+	background: rgba(125, 106, 222, 0.15);
+    border: 1px solid rgba(125, 106, 222, 0.15);
+}

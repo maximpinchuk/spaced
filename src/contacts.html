@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>Spaced 3</title>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
+
+		<style>
+			.pace {
+				-webkit-pointer-events: none;
+				pointer-events: none;
+
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				user-select: none;
+
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99999999;
+				transition: transform 0.5s;
+			}
+
+			.pace .pace-progress {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				background: #fafafa;
+
+				-webkit-transform: translate3d(0, 0, 0) !important;
+				-ms-transform: translate3d(0, 0, 0) !important;
+				transform: translate3d(0, 0, 0) !important;
+			}
+
+			.pace .pace-progress:after {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				content: attr(data-progress-text);
+				font-family: "Montserrat", sans-serif;
+				font-weight: 700;
+				font-size: 16.875rem;
+				line-height: 1;
+				text-align: right;
+				color: #7d6ade;
+			}
+
+			@media screen and (max-width: 768px) {
+				.pace .pace-progress:after {
+					font-size: 8rem;
+				}
+			}
+
+			.pace-column {
+				box-sizing: border-box;
+				float: left;
+				width: 12.5%;
+				height: 100%;
+				border-right: 1px solid #f3f3f3;
+				background: transparent;
+			}
+
+			.pace__substrate {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #7d6ade;
+				z-index: 99999998;
+				transition: transform 0.5s 0.5s;
+			}
+		</style>
+
+
+		<link rel="stylesheet" type="text/css" href="styles/main.min.css">
+	</head>
+	<body>
+
+		<!--[if lte IE 9]>
+        	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+		<![endif]-->
+
+		<!-- Pace substrate -->
+		<div class="pace__substrate"></div>
+
+		<!-- Dropdown menu -->
+		//= templates/_menu.html
+
+		<!-- Head repeat elements -->
+		//= templates/header.html
+
+		<header id="header" class="header header--contacts">
+			<div class="header__contacts-block">
+				<h3 class="contacts-block__title">Контакты</h3>
+				<p class="contacts-block__spaced-info">ООО «Спэйсд Диджитал»</p>
+				<p class="contacts-block__adress">Минск, ул. Ленина 9, оф. 3А</p>
+				<a href="tel:+375173275500" class="contacts-block__tel">8 (017) 327 55 00</a>
+				<span class="slash slash--medium"> / </span>
+				<a href="tel:+375296414860" class="contacts-block__tel">8 (029) 641 48 60</a>
+				<br>
+				<a href="mailto:contact@spaced.by" class="contacts-block__email">contact@spaced.by</a>
+				<br>
+				<a href="#" target="_blank" class="contacts-block__socials">VK</a>
+				<span class="slash slash--tiny"> / </span>
+				<a href="#" target="_blank" class="contacts-block__socials">FACEBOOK</a>
+				<span class="slash slash--tiny"> / </span>
+				<a href="#" target="_blank" class="contacts-block__socials">INSTAGRAM</a>
+			</div>
+			<div class="map__container">
+				<div id="map"></div>
+			</div>
+		</header>
+
+		<div id="main-content__trigger"></div>
+		<div id="content" class="main--content">
+			<section class="block" id="form-block">
+				<div class="container anim__block">
+					<div class="anim__wrapper fadeUp">
+						<h2 class="contacts-page__title anim__element">Напишите нам</h2>
+					</div>
+					<div class="anim__wrapper">
+						<p class="contacts-page__subtitle anim__element" style="transition-delay: 0.2s;">Отвечаем всем и всегда. Написать про то, что с вами свяжутся в течение нескольких минут, а пока заварите чай.</p>
+					</div>
+
+					<form id="contacts__form" class="form">
+						<div class="form__row start">
+							<div class="form__column small">
+								<div class="animation__block anim__wrapper fadeUp">
+									<div class="form__input-block anim__element" style="transition-delay: 0.4s;">
+										<label class="input-block__label">Ваше имя</label>
+										<input type="text" name="name" class="input-block__input">
+										<span class="input-block__error">Введите что-нибудь</span>
+									</div>
+								</div>
+								<div class="animation__block anim__wrapper fadeUp">
+									<div class="form__input-block anim__element" style="transition-delay: 0.5s;">
+										<label class="input-block__label">Ваш телефон</label>
+										<input type="text" name="tel" class="input-block__input tel-input">
+									</div>
+								</div>
+								<div class="animation__block anim__wrapper fadeUp">
+									<div class="form__input-block anim__element" style="transition-delay: 0.6s;">
+										<label class="input-block__label">Ваш e-mail</label>
+										<input type="text" name="email" class="input-block__input">
+									</div>
+								</div>
+							</div>
+							<div class="form__column small">
+								<div class="anim__wrapper fadeUp">
+									<div class="form__input-block anim__element" style="transition-delay: 0.4s;">
+										<label class="input-block__label">Ваше сообщение</label>
+										<textarea name="msg" class="input-block__input input-block__textarea large"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form__row start anim__wrapper">
+							<button class="form__btn anim__element" onclick="validate(this.form);" style="transition-delay: 0.7s;">
+								<span>отправить заявку</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+
+		<!-- Surprise block -->
+		//= templates/surprise-block.html
+
+		<!-- Footer -->
+		//= templates/footer.html
+
+		<!-- Chat form -->
+		//= templates/chat-form.html
+
+
+		<!-- LINKED FILES -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/pace.js"></script> -->
+
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/main.min.js"></script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUK7jSNSRplO_7ORrsyHe0ZMJwq2CKR4c"></script>
+		<script type="text/javascript">
+			//Google Map Initialization
+			google.maps.event.addDomListener(window, 'load', init);
+			var map;
+			function init() {
+			    var mapOptions = {
+			        center: new google.maps.LatLng(53.900075, 27.560381),
+			        zoom: 17,
+			        zoomControl: true,
+			        zoomControlOptions: {
+			            style: google.maps.ZoomControlStyle.DEFAULT,
+			        },
+			        disableDoubleClickZoom: true,
+			        fullscreenControl: false,
+			        mapTypeControl: false,
+			        scaleControl: true,
+			        scrollwheel: false,
+			        panControl: false,
+			        streetViewControl: false,
+			        draggable : true,
+			        overviewMapControl: true,
+			        overviewMapControlOptions: {
+			            opened: false,
+			        },
+			        mapTypeId: google.maps.MapTypeId.ROADMAP,
+			        styles: [
+					    {
+					        "featureType": "administrative.province",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "visibility": "off"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "landscape",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "lightness": 65
+					            },
+					            {
+					                "visibility": "on"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "poi",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "lightness": 51
+					            },
+					            {
+					                "visibility": "simplified"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.highway",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "visibility": "simplified"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.arterial",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "lightness": 30
+					            },
+					            {
+					                "visibility": "on"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.local",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "lightness": 40
+					            },
+					            {
+					                "visibility": "on"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "transit",
+					        "elementType": "all",
+					        "stylers": [
+					            {
+					                "saturation": -100
+					            },
+					            {
+					                "visibility": "simplified"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "transit",
+					        "elementType": "geometry.fill",
+					        "stylers": [
+					            {
+					                "visibility": "on"
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "water",
+					        "elementType": "geometry",
+					        "stylers": [
+					            {
+					                "hue": "#ffff00"
+					            },
+					            {
+					                "lightness": -25
+					            },
+					            {
+					                "saturation": -97
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "water",
+					        "elementType": "labels",
+					        "stylers": [
+					            {
+					                "visibility": "on"
+					            },
+					            {
+					                "lightness": -25
+					            },
+					            {
+					                "saturation": -100
+					            }
+					        ]
+					    }
+					],
+			    }
+			    var mapElement = document.getElementById('map');
+			    var map = new google.maps.Map(mapElement, mapOptions);
+				var locations = [
+					['Улица Ленина 9', 'undefined', 'undefined', 'undefined', 'undefined', 53.900075, 27.560381, 'img/placeholder.png']
+				];
+
+			    for (i = 0; i < locations.length; i++) {
+					if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
+					if (locations[i][2] =='undefined'){ telephone ='';} else { telephone = locations[i][2];}
+					if (locations[i][3] =='undefined'){ email ='';} else { email = locations[i][3];}
+			       	if (locations[i][4] =='undefined'){ web ='';} else { web = locations[i][4];}
+			        if (locations[i][7] =='undefined'){ markericon ='';} else { markericon = locations[i][7];}
+			        marker = new google.maps.Marker({
+			            icon: markericon,
+			            position: new google.maps.LatLng(locations[i][5], locations[i][6]),
+			            map: map,
+			            title: locations[i][0],
+			            desc: description,
+			            tel: telephone,
+			            email: email,
+			            web: web
+			        });
+					link = '';     
+				}
+			}
+		</script>
+	</body>
+</html>
